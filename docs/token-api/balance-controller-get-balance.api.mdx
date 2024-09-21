@@ -1,0 +1,225 @@
+---
+id: balance-controller-get-balance
+title: "Get balance by wallet, token, and block number for a given network."
+description: "Get balance by wallet, token, and block number for a given network."
+sidebar_label: "Get balance by wallet, token, and block number for a given network."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVt9v2zgM/lcEPnWA2iTd3e3Ob90PDMUBh2HXwz0UQcHYTKxVljxJThMY/t8HWk4WxxmapM1DElmW+JH8+JE12JIcBmXNbQYJvEeNJqUP1gRntSb3sKDQPQQJJTosKJDzkNzXYLAgSMBQeLLu8aFdSnD0vVKOMkiCq0iCMpBAiSEHCRn51KmS7bE1bdPHNEdlRHeHFGnlHJmg18IavRYU8ssClTEUhPLCV2VpXaAMJPg0pwIhqSGsS8bhg1NmAU0jt9CeUGsKD5hljrw/CdxdTiIeF91xYeci5CQqT04oI3JaYUapKlCLuXUFBpBAKyxKzbbHq8n1299+/+Pdn3+NcZZmNP/V+khngn0kc7YvKecU04E37a1HuRNBP/99pDszzv6DqYoZuZO9aQ+LeJjRiqdcpXnr0CzSlenCd5KPdNl6EqN+AGMHZRfjkpxno6fAu/lyK7pzAzovJ79kcdNM2YovrfHkGdb1eMw/B5zvPMww4BVI4NSSCfwylqVWaVvQo2+eT9RDR+3sG6Wc3dJx+QcV7UW233T8GuRu38//DxZHpFNudfbaRdLIWAFHA7xroQx4/6pUbyR02TgCz07qdqPVsz0ZDz6tEeb7P5GgA8Ye1NVNcWCIllRBvfJ4Qq6P1LrsUHlsgs1d4TlzMc63H9s6/PT1w7vrSXTMiwvbvoT6Tc+EBFNpjTNecDltrN21dp6N47rsB1Bc0NXiSrLt67HsIPQsQrvFpb1TyPd7jN/j18/M9sP/MzK7qKcSggqtra5ffgwWGv5ICLjgjrnZ8fx236fPFLaZma27xiOje1KgyYaKh2KhlrRtnSwEBYXcch9fUFveLE8JjLqL/aju98NmVPd6SjOqd0W5YXkit4ztfsqLtHIqrP9lQYmagaX6m9Y7OesedAKZE2ZtyDo9XV1iqS4fad2mQpm5bY92gYtEuvlye1BT2eeYbta9Nia58sE6laLeBI/TthHtBCZX404eMQ2txkoorQ8FtsLYgXqd2PcAb8MRaBVGpUZluIorp3kv5uUedjAng0kl2W/3Sa9hTiXk1ge+pq5n6Ok/p5uGH3+vyK1jwpboVKyy+xoy5fl/BskctacB4m0XgYuvXY28ES8b0Q4GYUMUwyxZoq54BRKYFXvDJHfis2CfObydgXcvby9CfN6IdgboPrVehPn0QewMvD3mnw33tMHsDJgb4WmmjdxIH1de3L1JUyrDzrnBrMYT4FbCP3+6g6b5AaGmreo=
+sidebar_class_name: "get api-method"
+info_path: docs/token-api/token-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get balance by wallet, token, and block number for a given network."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/balances/{wallet_address}/{token_address}/{block_number}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get balance by wallet, token, and block number for a given network.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"network_name","required":true,"in":"path","description":"Blockchain network, currently only eth-mainnet is supported","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"wallet_address","required":true,"in":"path","description":"The wallet address of the user in hexadecimal format","example":"0x1234567890abcdef1234567890abcdef12345678","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"token_address","required":true,"in":"path","description":"The contract address of the token in hexadecimal format","example":"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"block_number","required":true,"in":"path","description":"The block number for which the balance is requested","example":123456,"schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"version","required":true,"in":"path","description":"API version, currently only v1 is supported","schema":{}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The balance data.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"walletAddress"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Wallet address of the token holder in hexadecimal format","example":"0x1234567890abcdef1234567890abcdef12345678"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tokenAddress"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Token contract address in hexadecimal format","example":"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"balance"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"The balance of the token","example":"1000000000000000000"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"blockNumber"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Block number at the time the balance was recorded","example":123456}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tokenId"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Token ID for ERC721 tokens (optional)","example":1,"nullable":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tokenType"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Type of the token (e.g., ERC20, ERC721)","example":"ERC20"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"walletAddress\": \"0x1234567890abcdef1234567890abcdef12345678\",\n  \"tokenAddress\": \"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\",\n  \"balance\": \"1000000000000000000\",\n  \"blockNumber\": 123456,\n  \"tokenId\": 1,\n  \"tokenType\": \"ERC20\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
