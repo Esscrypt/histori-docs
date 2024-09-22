@@ -26,4 +26,5 @@ jobs:
       - name: Deploy to GitHub Pages
         run: USE_SSH=true npx docusaurus deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER: ${{ secrets.GIT_USER }}  # Set up in Secrets
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use PAT instead of default GITHUB_TOKEN }}
