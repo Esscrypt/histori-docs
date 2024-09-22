@@ -24,7 +24,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npx docusaurus deploy
+        run: USE_SSH=true npx docusaurus deploy
         env:
-          GIT_USER: ${{ secrets.GIT_USER }}  # Set up GIT_USER in your GitHub secrets
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
