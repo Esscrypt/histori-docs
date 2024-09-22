@@ -1,6 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
@@ -8,16 +6,17 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 const config: Config = {
   title: "Histori API",
   tagline: "Histori API",
-  url: "https://docs.histori.xyz",
-  baseUrl: "/",
+  // Change the URL to match your custom domain
+  url: "https://www.docs.histori.xyz",  // The URL of your site
+  baseUrl: "/",  // Serve docs from the root
+  
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "esscrypt", // Usually your GitHub org/user name.
-  projectName: "histori-docs", // Usually your repo name.
+  organizationName: "esscrypt", // GitHub org/user name
+  projectName: "histori-docs", // Repository name
 
   presets: [
     [
@@ -37,12 +36,12 @@ const config: Config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "api", // plugin id
-        docsPluginId: "classic", // configured for preset-classic
+        id: "api",
+        docsPluginId: "classic", // Use with preset-classic
         config: {
           api: {
-            specPath: "swagger.json", // Path to your Swagger JSON file
-            outputDir: "docs/token-api", // Directory where the docs will be generated
+            specPath: "swagger.json",  // Path to the Swagger spec
+            outputDir: "docs/token-api",  // Output directory for the generated docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -53,7 +52,12 @@ const config: Config = {
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],
-  
+
+  // Set the trailingSlash config to avoid issues with URL paths
+  trailingSlash: false,
+
+  // Metadata for your site deployment
+  deploymentBranch: 'gh-pages',  // Optional: The branch where GitHub Pages will serve your docs
 };
 
 export default async function createConfig() {

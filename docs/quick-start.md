@@ -21,9 +21,9 @@ Once logged in, you will be able to generate your API key.
 
 1. Navigate to the **API Keys** section of your dashboard.
 2. Click **Show API Key**.
-3. Your API key will appear. It will start with `ckey_`. Be sure to copy this key and keep it secure.
+3. Your API key will appear. It will start with `HISTORI_`. Be sure to copy this key and keep it secure.
 
-Example API Key: `ckey_youruniqueapikey`
+Example API Key: `HISTORI_youruniqueapikey`
 
 ## Step 3: Make an API Request
 
@@ -44,7 +44,7 @@ GET /v1/{:network_name}/balance/{:wallet_address}/{:contract_address}/
 ### Example API call
 ``` bash
 curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B/0x1234567890abcdef1234567890abcdef12345678/' \
--H 'x-api-key: ckey_youruniqueapikey'
+-H 'x-api-key: HISTORI_youruniqueapikey'
 ```
 ### Example Response
 ```
@@ -62,7 +62,7 @@ In this example, the request queries the balance of the wallet address `0xAb5801
 
 ### Required Headers
 
-`x-api-key`: Your unique API key, which starts with ckey_.
+`x-api-key`: Your unique API key, which starts with `HISTORI_`.
 
 ### Explore Other Endpoints
 
