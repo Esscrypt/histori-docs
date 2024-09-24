@@ -8,7 +8,7 @@ const config: Config = {
   tagline: "Histori API",
   // Change the URL to match your custom domain
   url: "https://www.docs.histori.xyz",  // The URL of your site
-  baseUrl: "/",  // Serve docs from the root
+  baseUrl: "/histori-docs",  // Serve docs from the root
   
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
