@@ -5,11 +5,6 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     {
       type: "doc",
-      id: "intro", // Directly link to the single Introduction markdown file
-      label: "Introduction", // Name of the item in the sidebar
-    },
-    {
-      type: "doc",
       label: "Overview",
       id: "overview", // Directly link to the single Overview markdown file
     },
@@ -17,7 +12,9 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Getting Started",
       items: [
+        { type: "doc", id: "setup" }, // Quick start guide
         { type: "doc", id: "quick-start" }, // Quick start guide
+        { type: "doc", id: "demo" }, // Quick start guide
         { type: "doc", id: "faq" }, // FAQ
       ],
     },

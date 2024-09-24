@@ -18,6 +18,8 @@ const config: Config = {
   organizationName: "esscrypt", // GitHub org/user name
   projectName: "histori-docs", // Repository name
 
+  trailingSlash: false,
+
   presets: [
     [
       "classic",
@@ -48,13 +50,22 @@ const config: Config = {
           } satisfies OpenApiPlugin.Options,
         }
       },
-    ]
+    ],
+    // Use docusaurus-plugin-client-redirects for redirection
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/',
+            to: '/docs/overview',
+          },
+        ],
+      },
+    ],
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],
-
-  // Set the trailingSlash config to avoid issues with URL paths
-  trailingSlash: false,
 
   // Metadata for your site deployment
   deploymentBranch: 'gh-pages',  // Optional: The branch where GitHub Pages will serve your docs
