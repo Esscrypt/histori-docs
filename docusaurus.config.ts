@@ -7,7 +7,7 @@ const config: Config = {
   title: "Histori API",
   tagline: "Histori API",
   // Change the URL to match your custom domain
-  url: "https://www.docs.histori.xyz",  // The URL of your site
+  url: "https://esscrypt.github.io/",  // The URL of your site
   baseUrl: "/histori-docs",  // Serve docs from the root
   
   onBrokenLinks: "warn",
@@ -57,7 +57,7 @@ const config: Config = {
       {
         redirects: [
           {
-            from: '/',
+            from: '/histori-docs/',
             to: '/docs/overview',
           },
         ],
