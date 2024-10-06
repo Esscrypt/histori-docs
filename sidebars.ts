@@ -15,6 +15,7 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "setup" }, // Quick start guide
         { type: "doc", id: "quick-start" }, // Quick start guide
         { type: "doc", id: "demo" }, // Quick start guide
+        { type: "doc", id: "sdk" }, // SDK Reference
         { type: "doc", id: "faq" }, // FAQ
       ],
     },
