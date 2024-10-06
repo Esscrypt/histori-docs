@@ -1,0 +1,193 @@
+---
+id: token-supply-controller-get-token-supply
+title: "Get token supply by token address and block number for a given network."
+description: "Get token supply by token address and block number for a given network."
+sidebar_label: "Get token supply by token address and block number for a given network."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU2P2zgM/SsCT7uAp8l0Pw6+TXcXxaBAUWxnT4NgwMhMrI4sqRKdJgj83xe0lcAeT9FO2hyS2AKpR773yCP4QBHZeHdbQQl3/pHcxzYEe/jLO47eWooPW+LRARQQMGJDTDFBeX8Ehw1BCY74i4+PD/1jAZE+tyZSBSXHlgowDkoIyDUUUFHS0QS5F0p4Y71+1DUap3KOQuk2RnJsD8o7e1DE9VWDxjliZZJKbQg+MlVQQNI1NQjlEfgQBEfiaNwWuq44Q2OB/4BVFSmlF2G7q0lpaQVqVjmB8hvFNak+qzJO1bTHirRp0KqNjw0yFEB7bIKV25d7XOuKNt/+/s5y1tKwB9c2a4ovrqYPVkOwoFVfaqPrUUGpp1naLIkpDW0+l3P9+rff//jzGaAZzxjojmKSm1+C8ebDrcpxMxnsrr/Kftet5JYUvEuUBNbr5VJ+5h2YlFkh4ysoQEgmxxKBIVije1csPiUJO86r9etPpIXnEMVDbIZL+9w3WWgzEmd89Ehm+vqpkuqKQS/vB3pmfD3rxpM+kAdhmIZOqk8OQ6o9zzXRFcCe0eY58R3VM9oTDxNP5Wu3ZkduIthJE66Xs4+ob6S1+ykf005M0a4KYMN93tGw+5s9dPIpgHEr4250KpSvnhb1lngqsPXhVFRmF101NyHmYvMAFEU2xLWXqbylXmdilhIWfbKrlAEsjpPZ1i2O4+HQiUMo7oZJvZIH3UbDh48i50GxGMw7GrOVX2SP1oRV36xs6f0VBnP1SIe+1cZtfB86bp26+XD7rK2l0KEX4rq+EbVJ7KPRaNUaLTpNQtNpbpRw/WqZzYmae5sXEHziBntbZlA/r+kT0OeWMO15ESwaJ3Zqo5WzgZAssTMhUED5dN2Uk4G9KqD2iSX0eFxjov+i7Tp5/bmleBiI2mE0uJae3h+hMkn+V1Bu0CaaoTzPLvjl36z9X9WPbdVnCz8JxIk6dmhbeYICRA1P9r8sgYtgX75wL4A8JeqHMF+4Vi8APRHTxZhftmYvgHnycLfqitMUETEPpzdaU+BR3Gzpyj4/j8C3/9xB1/0PaTm6eA==
+sidebar_class_name: "get api-method"
+info_path: docs/token-api/token-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get token supply by token address and block number for a given network."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/token-supplies/{token_address}/{block_number}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get token supply by token address and block number for a given network.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"network_name","required":true,"in":"path","description":"Blockchain network, currently only eth-mainnet is supported","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"token_address","required":true,"in":"path","description":"The contract address of the token in hexadecimal format","example":"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"block_number","required":true,"in":"path","description":"The block number for which the token supply is requested","example":123456,"schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"version","required":true,"in":"path","description":"API version, currently only v1 is supported","schema":{}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The token supply data.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"tokenAddress"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Token contract address in hexadecimal format","example":"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"blockNumber"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Block number at the time of the snapshot","example":123456}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"totalSupply"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Total supply of the token at the given block number","example":"1000000000000000000"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"tokenAddress\": \"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\",\n  \"blockNumber\": 123456,\n  \"totalSupply\": \"1000000000000000000\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
