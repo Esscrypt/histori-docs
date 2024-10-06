@@ -4,27 +4,70 @@ on:
   push:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+    repository_dispatch:
+      types: [update-docs]
 
 jobs:
   build:
-    name: Build Docusaurus
+    name: Build Docusaurus with Versioning
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the documentation repository
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
+      # Step 2: Clone the `esscrypt/histori-rest-api` repository
+      - name: Clone histori-rest-api repository
+        run: git clone https://github.com/esscrypt/histori-rest-api.git
+
+      # Step 3: Copy the `swagger.json` file
+      - name: Copy swagger.json
+        run: cp histori-rest-api/swagger.json ./swagger.json
+
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm ci
+
+      # Step 5: Determine the latest version and increment it
+      - name: Determine latest version
+        id: get_latest_version
+        run: |
+          if [ -f versions.json ]; then
+            latest_version=$(jq -r '.[0]' versions.json)
+            echo "Latest version: $latest_version"
+            IFS='.' read -r -a version_parts <<< "$latest_version"
+            new_patch_version=$((version_parts[2] + 1))
+            new_version="${version_parts[0]}.${version_parts[1]}.$new_patch_version"
+          else
+            new_version="1.0.0"
+          fi
+          echo "New version: $new_version"
+          echo "new_version=$new_version" >> $GITHUB_ENV
+
+      # Step 6: Generate the API documentation with the new version
+      - name: Generate API documentation
+        run: npm run docusaurus docs:version ${{ env.new_version }}
+
+      # Step 7: Build the Docusaurus website
       - name: Build website
         run: npm run build
 
+      # Step 8: Commit and push changes (new version and versioned_docs)
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: add version ${{ env.new_version }}"
+          git push
+
+      # Step 9: Upload Build Artifact
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -34,12 +77,10 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
