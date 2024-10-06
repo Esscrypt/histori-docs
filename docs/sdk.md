@@ -5,9 +5,6 @@ title: SDK Usage
 
 # Histori SDK for TypeScript
 
-![Histori SDK Banner](./assets/banner.webp)
-
-
 The Histori SDK is the easiest way to interact with the Histori API for working with historical blockchain data. This SDK supports various blockchain networks, including Ethereum Mainnet and Testnets.
 
 **Recommended:** Use Node.js v18 or above for the best experience.
