@@ -1,15 +1,21 @@
 // @ts-check
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import * as fs from 'fs';
+import path from 'path';
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+
+// Read all versions from versions.json if it exists
+const versions = fs.existsSync(path.join(__dirname, 'versions.json'))
+  ? JSON.parse(fs.readFileSync(path.join(__dirname, 'versions.json'), 'utf8'))
+  : [];
 
 const config: Config = {
   title: "Histori API",
   tagline: "Histori API",
-  // Change the URL to match your custom domain
-  url: "https://esscrypt.github.io/",  // The URL of your site
-  baseUrl: "/histori-docs",  // Serve docs from the root
-  
+  url: "https://api.histori.xyz",  // Updated URL
+  baseUrl: "/",  // Root URL for the custom domain
+
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -27,6 +33,22 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          routeBasePath: "docs",  // Base path for the docs
+          includeCurrentVersion: true,  // Include the current version
+          lastVersion: versions.length > 0 ? versions[0] : "current",  // Use the latest version from versions.json if available
+          versions: {
+            current: {
+              label: "Next (Unreleased)",  // Custom label for the current version
+              path: "",  // Keep the current version at the root
+            },
+            ...versions.reduce((acc, version) => {
+              acc[version] = {
+                label: version,  // Label for the version
+                path: version,  // Path for the version
+              };
+              return acc;
+            }, {} as Record<string, { label: string; path: string }>),
+          },
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -57,7 +79,7 @@ const config: Config = {
       {
         redirects: [
           {
-            from: '/histori-docs/',
+            from: '/',
             to: '/docs/overview',
           },
         ],
