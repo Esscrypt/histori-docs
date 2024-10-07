@@ -14,7 +14,7 @@ const config: Config = {
   title: "Histori API",
   tagline: "Histori API",
   url: "https://api.histori.xyz",  // Updated URL
-  baseUrl: "/",  // Root URL for the custom domain
+  baseUrl: "/histori-docs/",  // Root URL for the custom domain
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
