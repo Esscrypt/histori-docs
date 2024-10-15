@@ -60,14 +60,14 @@ const config: Config = {
       'docusaurus-plugin-openapi-docs',
       {
         id: "api",
-        docsPluginId: "default",
+        docsPluginId: "classic",
         config: {
           api: {
             specPath: "swagger.json",
             outputDir: "docs/api",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              // categoryLinkSource: "tag",
             },
           },
         }

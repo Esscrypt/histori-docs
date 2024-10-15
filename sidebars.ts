@@ -40,9 +40,9 @@ const sidebars: SidebarsConfig = {
       link: {
         type: "generated-index",
         title: "Histori API Reference",
-        slug: "/docs/token-api",
+        slug: "/docs/api",
       },
-      items: require("./docs/token-api/sidebar.js"),
+      items: require("./docs/api/sidebar.js"),
     },
   ],
 };
