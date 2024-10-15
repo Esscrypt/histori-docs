@@ -17,10 +17,32 @@ To access the Histori API, you first need to create an account.
 
 ## Step 2: Get Your API Key
 
-Once logged in, you will be able to generate your API key.
-
 1. Navigate to the **API Keys** section of your dashboard.
-2. Click **Show API Key**.
-3. Your API key will appear. It will start with `HISTORI_`. Be sure to copy this key and keep it secure.
+2. Click **Show** on the API Key field.
+3. Your API key will appear. Be sure to copy this key and keep it secure.
 
-Example API Key: `HISTORI_youruniqueapikey`
+## Step 3: Set Your API Key in Headers/SDK
+> If you are making HTTP requests directly you will need to set the `x-api-key` header ot the API key you just copied.
+> If you are using the SDK You can set it up by setting it in the constructor:
+1. Install the Typescript SDK using:
+```bash
+npm install @esscrypt/histori-sdk
+```
+2. Set up the instance with your API key in your code:
+```bash
+import HistoriClient from '@esscrypt/histori-sdk';
+
+const client = new HistoriClient('<YOUR_API_KEY>');
+```
+
+
+## Step 4: Make a sample request
+1. Using the REST API:
+```bash
+curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/token?tokenType=erc20 \
+-H 'x-api-key: <your_api_key>'
+```
+2. Or by using the SDK:
+```bash
+const tokens = await client.TokenService.getTokens();
+```

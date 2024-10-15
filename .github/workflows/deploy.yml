@@ -26,14 +26,6 @@ jobs:
       - name: Clone histori-rest-api repository
         run: git clone https://github.com/esscrypt/histori-rest-api.git
 
-      # Step 3: Extract version from `package.json`
-      - name: Get version from package.json
-        id: get_version
-        run: |
-          version=$(jq -r '.version' histori-rest-api/package.json)
-          echo "Version from package.json: $version"
-          echo "new_version=$version" >> $GITHUB_ENV
-
       # Step 4: Copy the `swagger.json` file
       - name: Copy swagger.json
         run: cp histori-rest-api/swagger.json ./swagger.json
@@ -42,10 +34,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 6: Generate the API documentation with the version from package.json
-      - name: Generate API documentation
-        run: npm run docusaurus docs:version ${{ env.new_version }}
+      - name: Remove current generated token-api folder
+        run: rm -rf docs/token-api
 
+      - name: Generate swagger docs
+        run: npm run gen-api-docs all
       # Step 7: Build the Docusaurus website
       - name: Build website
         run: npm run build

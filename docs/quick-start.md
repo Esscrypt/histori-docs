@@ -12,18 +12,15 @@ This guide will help you quickly get started with the Histori API by walking you
 To access the Histori API, you first need to create an account.
 
 1. Visit the [Histori API Portal](https://api.histori.xyz/sign-up).
-2. Sign up with your email address and create a password.
-3. Once registered, log in to your account.
+2. Sign up with google, github, metamask, or your email address and password.
 
 ## Step 2: Get Your API Key
 
 Once logged in, you will be able to generate your API key.
 
 1. Navigate to the **API Keys** section of your dashboard.
-2. Click **Show API Key**.
-3. Your API key will appear. It will start with `HISTORI_`. Be sure to copy this key and keep it secure.
-
-Example API Key: `HISTORI_youruniqueapikey`
+2. Click **Show** on the API Key field.
+3. Your API key will appear. Be sure to copy this key and keep it secure.
 
 ## Step 3: Make an API Request
 
@@ -36,15 +33,17 @@ Here’s an example of how to query the balance of an Ethereum address on the `e
 **Endpoint:**
 
 ```bash
-GET /v1/{:network_name}/balance/{:wallet_address}/{:contract_address}/
+GET /v1/{:network_name}/balance/single?tokenAddress={:token_address}&holder={:holder}&blockNumber={:block_number}
 ```
 - **network_name**: The blockchain network (e.g., eth-mainnet).
-- **wallet_address**: The wallet address you want to query.
-- **contract_address**: The contract address of the token.
+- **holder**: The wallet address or ENS name of the holder you want to query.
+- **token_address**: The contract address of the token.
+- **block_number**: You can optionally specify a block number for which you want to query the data
+  
 ### Example API call
 ``` bash
-curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B/0x1234567890abcdef1234567890abcdef12345678/' \
--H 'x-api-key: HISTORI_youruniqueapikey'
+curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?holder=0x00000000004E3D5628234F18b977041e5242651f&tokenAddress=0xCeD4E93198734dDaFf8492d525Bd258D49eb388E' \
+-H 'x-api-key: demo_3027dae7229e6a4f'
 ```
 ### Example Response
 ```
@@ -62,7 +61,7 @@ In this example, the request queries the balance of the wallet address `0xAb5801
 
 ### Required Headers
 
-`x-api-key`: Your unique API key, which starts with `HISTORI_`.
+`x-api-key`: Your unique API key. You can get it from the [Histori API Portal](https://api.histori.xyz/sign-up).
 
 ### Explore Other Endpoints
 
