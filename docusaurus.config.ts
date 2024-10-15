@@ -46,6 +46,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "docs",
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
           includeCurrentVersion: true,
         },
         theme: {
