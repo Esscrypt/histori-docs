@@ -13,23 +13,39 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   organizationName: "esscrypt",
-  projectName: "histori-docs",
+  // projectName: "histori-docs",
 
   trailingSlash: false,
 
   themeConfig: {
     navbar: {
-      title: "Histori API",
-      logo: {
-        alt: "Histori Logo",
-        src: "img/logo.svg",
-      },
+      // title: "Histori API",
+      // logo: {
+      //   alt: "Histori Logo",
+      //   src: "img/logo.svg",
+      // },
       items: [
         {
           to: '/docs/overview',
-          label: 'Docs',
+          label: 'Overview',
           position: 'left',
         },
+        {
+          to: '/docs/quick-start',
+          label: 'Getting Started',
+          position: 'left',
+        },
+        {
+          to: '/docs/use-cases/tokenomics',
+          label: 'Use Cases',
+          position: 'left',
+        },
+        {
+          to: '/docs/api/token-controller-get-tokens',
+          label: 'Interactive API Reference',
+          position: 'left',
+        },
+
         {
           href: 'https://github.com/esscrypt/histori-docs',
           label: 'GitHub',
