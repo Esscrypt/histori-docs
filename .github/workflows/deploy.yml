@@ -23,9 +23,12 @@ jobs:
           node-version: 18
           cache: npm
 
-      # Step 2: Clone the `esscrypt/histori-rest-api` repository
-      - name: Clone histori-rest-api repository
-        run: git clone https://github.com/esscrypt/histori-rest-api.git
+      - name: Checkout repository
+        run: |
+          git clone https://$GITHUB_TOKEN@github.com/esscrypt/histori-rest-api.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Reference your repository secret
+
 
       # Step 4: Copy the `swagger.json` file
       - name: Copy swagger.json
