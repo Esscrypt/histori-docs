@@ -15,7 +15,7 @@ const config: Config = {
   organizationName: "esscrypt",
   projectName: "histori-docs",
 
-  // trailingSlash: false,
+  trailingSlash: false,
 
   themeConfig: {
     navbar: {
@@ -95,7 +95,15 @@ const config: Config = {
       {
         redirects: [
           {
+            from: '/histori-docs/docs/overview',
+            to: '/docs/overview',
+          },
+          {
             from: '/',
+            to: '/docs/overview',
+          },
+          {
+            from: '/docs',
             to: '/docs/overview',
           },
         ],

@@ -3,6 +3,9 @@ id: demo
 title: Demo
 ---
 
+# Interactive DEMO 
+> **Note**: You can explore our **Interactive Demo** using the demo API Key `demo_3027dae7229e6a4f` [here](/docs/api/token-controller-get-tokens)
+
 # Demo Guide
 
 This guide will help you quickly get started with the Histori API by walking you through the process of obtaining your API key, understanding how to authenticate requests, and making a sample request.
@@ -12,21 +15,18 @@ This guide will help you quickly get started with the Histori API by walking you
 To access the Histori API, you first need to create an account.
 
 1. Visit the [Histori API Portal](https://histori.xyz/signup).
-2. Sign up with your email address and create a password. Alternatively, you can sign up with GitHub or Google.
+2. Sign up with your email address and create a password. Alternatively, you can sign up with GitHub, Google or Metamask.
 3. Once registered, log in to your account.
 
 ---
 
 ## Step 2: Get Your API Key
 
-Once logged in, you will be able to generate your API key.
+Once logged in, you will be able to get your API key.
 
 1. Navigate to the **API Keys** section of your dashboard.
-2. Click **Generate API Key** (if you haven't generated one already).
-3. Your API key will appear. It will start with `HISTORI_`. Be sure to copy this key and keep it secure. **Do not share your API key** as it is tied to your account and usage limits.
-
-### Example API Key:
-`HISTORI_youruniqueapikey`
+2. Click **Show**
+3. Your API key will appear. Be sure to copy this key and keep it secure. **Do not share your API key** as it is tied to your account and usage limits.
 
 ---
 
@@ -35,7 +35,7 @@ Once logged in, you will be able to generate your API key.
 You must include your API key in the headers of every request you make to the Histori API. The key is passed using the `x-api-key` header. Without this, your requests will be unauthorized.
 
 Here’s an example of how your request headers should look:
-`x-api-key: HISTORI_youruniqueapikey`
+`x-api-key: <YOUR_UNIQUE_API_KEY>`
 
 ---
 
@@ -45,25 +45,32 @@ Now that you have your API key, let's try making a sample request to the Histori
 
 ### API Endpoint:
 
-`https://api.histori.xyz/v1/eth-mainnet/balance/{walletAddress}`
+`https://api.histori.xyz/v1/eth-mainnet/balance/single/token_address={:your_token}&holder={:your_ens_or_address}&block_height={:optional_block_height}`
 
 ---
 
 ### Sample Request Using cURL:
 
 ```bash
-curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/0xYourEthereumAddress' \
-  -H 'x-api-key: HISTORI_youruniqueapikey'
+curl -X GET https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth' \
+  -H 'x-api-key: demo_3027dae7229e6a4f'
 ```
 
 ---
 
 ### Sample Response:
-```bash
+```json
 {
-  "walletAddress": "0xYourEthereumAddress",
-  "balance": "1.23456789 ETH",
-  "blockNumber": 15000000
+    "network_name": "eth-mainnet",
+    "chain_id": 1,
+    "holder": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "token_address": "0xF2ec4a773ef90c58d98ea734c0eBDB538519b988",
+    "token_name": "Doge 2.0",
+    "token_symbol": "DOGE2.0",
+    "token_type": "erc20",
+    "checked_at_block": 20984814,
+    "checked_at_timestamp": "2024-10-17T10:53:35.000Z",
+    "balance": "18842536318442137573493"
 }
 ```
 
@@ -78,7 +85,7 @@ If you reach your rate limit, consider upgrading your plan or wait until the nex
 If your API key is invalid or you've exceeded your rate limit, the API will return an appropriate error message. Here’s an example of a typical error response:
 
 ### Example Error Response:
-```bash
+```json
 {
   "error": "Invalid API Key",
   "message": "The API key provided is invalid or has expired."
