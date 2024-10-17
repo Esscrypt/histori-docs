@@ -6,7 +6,7 @@ const config: Config = {
   title: "Histori API",
   tagline: "Histori API",
   url: "https://docs.histori.xyz", // Use the full custom domain
-  baseUrl: "/", // Base URL should be "/" since the subdomain itself serves the docs
+  baseUrl: "/histori-docs", // Base URL should be "/" since the subdomain itself serves the docs
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -94,10 +94,6 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          {
-            from: '/histori-docs/docs/overview',
-            to: '/docs/overview',
-          },
           {
             from: '/',
             to: '/docs/overview',
