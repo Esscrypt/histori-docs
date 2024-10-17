@@ -95,11 +95,11 @@ const config: Config = {
       {
         redirects: [
           {
-            from: '/histori-docs/*',
-            to: (fromPath) => fromPath.replace('/histori-docs', ''),
+            from: '/',
+            to: '/docs/overview',
           },
           {
-            from: '/',
+            from: '/docs',
             to: '/docs/overview',
           },
         ],

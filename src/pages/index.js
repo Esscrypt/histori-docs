@@ -5,7 +5,7 @@ export default function Home() {
   const history = useHistory();
 
   useEffect(() => {
-    history.push('/histori-docs/docs/overview');
+    history.push('/docs/overview');
   }, [history]);
 
   return null; // or add a loading spinner if needed
