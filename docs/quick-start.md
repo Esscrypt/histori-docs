@@ -42,22 +42,27 @@ GET /v1/{:network_name}/balance/single?tokenAddress={:token_address}&holder={:ho
   
 ### Example API call
 ``` bash
-curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?holder=0x00000000004E3D5628234F18b977041e5242651f&tokenAddress=0xCeD4E93198734dDaFf8492d525Bd258D49eb388E' \
+curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth' \
 -H 'x-api-key: demo_3027dae7229e6a4f'
 ```
 ### Example Response
 ```
 {
-    "wallet_address": "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
-    "token_address": "0x1234567890abcdef1234567890abcdef12345678",
-    "balance": "1000000000000000000",
-    "block_number": 12345678,
-    "token_type": "ERC20",
+    "network_name": "eth-mainnet",
+    "chain_id": 1,
+    "holder": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "token_address": "0xF2ec4a773ef90c58d98ea734c0eBDB538519b988",
+    "token_name": "Doge 2.0",
+    "token_symbol": "DOGE2.0",
+    "token_type": "erc20",
+    "checked_at_block": 20988246,
+    "checked_at_timestamp": "2024-10-17T22:23:35.000Z",
+    "balance": "18842536318442137573493"
 }
 
 ```
 
-In this example, the request queries the balance of the wallet address `0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B` for the Ethereum contract at `0x1234567890abcdef1234567890abcdef12345678` on the `eth-mainnet` network. The `x-api-key` header contains your API key.
+In this example, the request queries the balance of the holder `vitalik.eth` for the Ethereum contract at `0xF2ec4a773ef90c58d98ea734c0eBDB538519b988` on the `eth-mainnet` network. The `x-api-key` header contains your API key.
 
 ### Required Headers
 

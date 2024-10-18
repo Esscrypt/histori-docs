@@ -34,7 +34,7 @@ At **Histori**, we are addressing these challenges by offering a **RESTful API**
     - Example API call:
         
         ```bash
-        https://api.histori.xyz/v1/eth-mainnet/balance/{:wallet_address}/{:token_address}?block_number=123456
+        https://api.histori.xyz/v1/eth-mainnet/tokens?token_type=erc20
         
         ```
 2. **Affordability and Accessibility**:

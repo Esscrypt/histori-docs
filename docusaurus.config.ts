@@ -22,7 +22,7 @@ const config: Config = {
       title: "Histori API",
       logo: {
         alt: "Histori Logo",
-        src: "img/logo.svg",
+        src: "img/logo.png",
       },
       items: [
         {
