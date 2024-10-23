@@ -29,7 +29,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Reference your repository secret
 
+      - name: Remove current generated token-api folder
+        run: rm -rf docs/api
 
+      - name: Remove current swagger.json file
+        run: rm -rf ./swagger.json
+      
       # Step 4: Copy the `swagger.json` file
       - name: Copy swagger.json
         run: cp histori-rest-api/swagger.json ./swagger.json
