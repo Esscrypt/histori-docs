@@ -18,6 +18,22 @@ const config: Config = {
   trailingSlash: false,
 
   themeConfig: {
+    headTags: [
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'manifest',
+          href: 'img/site.webmanifest', // Make sure the path is correct
+        },
+      },
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'icon',
+          href: 'img/favicon.ico', // Ensure favicon is linked correctly
+        },
+      },
+    ],
     navbar: {
       title: "Histori API",
       logo: {

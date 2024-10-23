@@ -4,7 +4,7 @@ title: Demo
 ---
 
 # Interactive DEMO 
-> **Note**: You can explore our **Interactive Demo** using the demo API Key `demo_3027dae7229e6a4f` [here](/docs/api/token-controller-get-tokens)
+> **Note**: You can explore our [**Interactive Demo**](/docs/api/token-controller-get-tokens) using the Demo API Key `demo_3027dae7229e6a4f`
 
 # Demo Guide
 
@@ -15,8 +15,8 @@ This guide will help you quickly get started with the Histori API by walking you
 To access the Histori API, you first need to create an account.
 
 1. Visit the [Histori API Portal](https://histori.xyz/signup).
-2. Sign up with your email address and create a password. Alternatively, you can sign up with GitHub, Google or Metamask.
-3. Once registered, log in to your account.
+2. Sign up with your email address and create a password. Alternatively, you can sign up with **GitHub**, **Google** or **Metamask**.
+3. Once registered, Log in to your account.
 
 ---
 
@@ -77,7 +77,7 @@ curl -X GET https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=
 ---
 
 ## Step 5: Check Rate Limits and Quotas
-Each API key has a rate limit based on your subscription plan (Free, Starter, Growth, Business, or Enterprise). You can check your usage in the Dashboard under the Usage section.
+Each API key has a rate limit based on your subscription plan (`Free`, `Starter`, `Growth`, `Business`, or `Enterprise`). You can check your usage in the Dashboard under the Usage section.
 
 If you reach your rate limit, consider upgrading your plan or wait until the next reset period (monthly).
 
@@ -87,8 +87,9 @@ If your API key is invalid or you've exceeded your rate limit, the API will retu
 ### Example Error Response:
 ```json
 {
-  "error": "Invalid API Key",
-  "message": "The API key provided is invalid or has expired."
+    "message": "Historical Allowance does not exist for this owner and spender",
+    "error": "Not Found",
+    "statusCode": 404
 }
 ```
 

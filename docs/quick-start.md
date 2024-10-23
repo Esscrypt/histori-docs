@@ -26,7 +26,7 @@ Once logged in, you will be able to generate your API key.
 
 All requests to the Histori API require your API key to be sent in the `x-api-key` header. The API uses a RESTful approach, and all endpoints are accessible via `GET` requests.
 
-### Example Request
+### Example Request Format
 
 Here’s an example of how to query the balance of an Ethereum address on the `eth-mainnet` network:
 
@@ -35,18 +35,24 @@ Here’s an example of how to query the balance of an Ethereum address on the `e
 ```bash
 GET /v1/{:network_name}/balance/single?tokenAddress={:token_address}&holder={:holder}&blockNumber={:block_number}
 ```
-- **network_name**: The blockchain network (e.g., eth-mainnet).
-- **holder**: The wallet address or ENS name of the holder you want to query.
-- **token_address**: The contract address of the token.
-- **block_number**: You can optionally specify a block number for which you want to query the data
+- **`network_name`**: The blockchain network (e.g., eth-mainnet).
+- **`holder`**: The wallet address or ENS name of the holder you want to query.
+- **`token_address`**: The contract address of the token.
+- **`block_height`**: You can `optionally` specify a block number for which you want to query the data
+- **`date`**: You can `optionally` specify a Date for which you want to query the data. 
+- You can specify either `date` or `block_height`, but not both as they refer to the same timestamp.
   
 ### Example API call
 ``` bash
 curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth' \
 -H 'x-api-key: demo_3027dae7229e6a4f'
 ```
+> **Note**: This example Uses the Demo API Key, which is rate-limited and could be used up. Make sure you have a valid one from the [Histori API Portal](https://api.histori.xyz/sign-up).
+
+--- 
+
 ### Example Response
-```
+```json
 {
     "network_name": "eth-mainnet",
     "chain_id": 1,
@@ -70,6 +76,8 @@ In this example, the request queries the balance of the holder `vitalik.eth` for
 
 ### Explore Other Endpoints
 
-After successfully making your first request, you can explore other API endpoints and retrieve data such as transaction history, token balances, and more. Be sure to check the full API reference for more details.
+**After successfully making your first request, you can explore other API endpoints and retrieve data such as transaction history, token balances, and more. Be sure to check the full API reference for more details.**
+
 ---
-For any issues or further questions, check our FAQ or contact support.
+
+> For any issues or further questions, check our [FAQ](docs.histori.xyz/docs/faq) or contact support.

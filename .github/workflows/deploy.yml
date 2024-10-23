@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Remove current generated token-api folder
-        run: rm -rf docs/token-api
+        run: rm -rf docs/api
 
       - name: Generate swagger docs
         run: npm run gen-api-docs all

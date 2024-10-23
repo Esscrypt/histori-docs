@@ -12,7 +12,7 @@ This guide will help you quickly get started with the Histori API by walking you
 To access the Histori API, you first need to create an account.
 
 1. Visit the [Histori API Portal](https://histori.xyz/signin).
-2. Sign up with your email address and create a password. Alternatively, you can sign up with Github or Google.
+2. Sign up with your email address and create a password. Alternatively, you can sign up with **GitHub**, **Google** or **Metamask**.
 3. Once registered, log in to your account.
 
 ## Step 2: Get Your API Key
