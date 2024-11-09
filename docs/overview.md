@@ -1,4 +1,4 @@
-# Histori - Historical Blockchain Data API
+# Histori - Platform for Historical Blockchain Data
 
 ## **Problem: The Challenge of Accessing Historical Blockchain Data**
 
@@ -28,7 +28,7 @@ At **Histori**, we are addressing these challenges by offering a **RESTful API**
 ### **How Histori Achieves This:**
 
 1. **Efficient Access to Historical Data**:
-    - Portus allows developers to effortlessly query historical data such as token balances, approvals, allowances, and contract details at specific blocks. Whether it's fetching an ERC20 token balance at a specific block height or querying a list of token holders at a given moment, developers can achieve this with simple API calls. This reduces the complexity of interacting with blockchain nodes directly and eliminates the need for large-scale infrastructure.
+    - Histori allows developers to effortlessly query historical data such as token balances, approvals, allowances, and contract details at specific blocks. Whether it's fetching an ERC20 token balance at a specific block height or querying a list of token holders at a given moment, developers can achieve this with simple API calls. This reduces the complexity of interacting with blockchain nodes directly and eliminates the need for large-scale infrastructure.
 2. **Seamless Integration via API**:
     - Instead of running and maintaining a full archival node, developers can use the **Histori API** to request the data they need. By modifying parameters like `network_name` or `block_number` in the API URL, users can instantly fetch data from different blockchain networks without any extra overhead. This reduces the technical burden of building and maintaining custom infrastructure.
     - Example API call:

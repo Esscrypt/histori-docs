@@ -12,11 +12,37 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Getting Started",
       items: [
-        { type: "doc", id: "setup" }, // Quick start guide
-        { type: "doc", id: "quick-start" }, // Quick start guide
-        { type: "doc", id: "demo" }, // Demo guide
-        { type: "doc", id: "sdk" }, // SDK Reference
-        { type: "doc", id: "faq" }, // FAQ
+        { type: "doc", id: "start/setup" }, // Quick start guide
+        { type: "doc", id: "start/quick-start" }, // Quick start guide
+        { type: "doc", id: "start/demo" }, // Demo guide
+        { type: "doc", id: "start/faq" }, // FAQ
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Histori SDK',
+      items: [
+        { type: 'doc', id: 'sdk/intro' }, // SDK Introduction
+        { type: 'doc', id: 'sdk/changelog' }, // SDK Introduction
+        // { type: 'doc', id: 'sdk/quick-start' }, // SDK Quick Start
+        // { type: 'doc', id: 'sdk/usage' }, // SDK Usage
+        // { type: 'doc', id: 'sdk/faq' }, // SDK FAQ
+      ],
+    },
+    {
+      type: "category",
+      label: "Archival Node",
+      items: [
+        { type: "doc", id: "archive-node-info/intro" }, // Archival Node setup
+      ],
+    },
+    {
+      type: "category",
+      label: "Tokenomics",
+      items: [
+        { type: "doc", id: "token/contracts" }, // Archival Node setup
+        { type: "doc", id: "token/deposit" }, // Archival Node setup
+        { type: "doc", id: "token/tokenomics" }, // Archival Node setup
       ],
     },
     {
@@ -43,6 +69,30 @@ const sidebars: SidebarsConfig = {
         slug: "/docs/api",
       },
       items: require("./docs/api/sidebar.js"),
+    },
+    {
+      type: "category",
+      label: "Archival Node RPC API Reference",
+      link: {
+        type: "generated-index",
+        title: "Histori Archival Node RPC API Reference",
+        slug: "/docs/archive-node",
+      },
+      items: require("./docs/archive-node/sidebar.js"),
+    },
+    // {
+    //   type: "category",
+    //   label: "Tutorials",
+    // },
+    {
+      type: "category",
+      label: "Community",
+      items: [
+        { type: "doc", id: "community/contributing" }, // Contributing to Histori
+        { type: "doc", id: "community/license" }, // License
+        { type: "doc", id: "community/acknowledgements" }, // Acknowledgements
+        { type: "doc", id: "community/contact" }, // Contact
+      ],
     },
   ],
 };

@@ -1,6 +1,5 @@
 ---
-id: sdk
-title: SDK Usage
+title: SDK Intro
 ---
 > **Note**: This SDK is being actively worked on and will have improvements that may introduce breaking changes between versions. All feedback and improvement suggestions can be submitted [here](https://forms.gle/W26WVARe3x7R6nmm8)
 

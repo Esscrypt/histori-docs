@@ -80,4 +80,4 @@ In this example, the request queries the balance of the holder `vitalik.eth` for
 
 ---
 
-> For any issues or further questions, check our [FAQ](docs.histori.xyz/docs/faq) or contact support.
+> For any issues or further questions, check our [FAQ](/docs/start/faq) or contact support.

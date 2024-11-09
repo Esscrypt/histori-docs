@@ -1,1 +1,1678 @@
-{"openapi":"3.0.0","paths":{"/{network}/transaction":{"get":{"operationId":"TransactionController_getTransactionDetails","summary":"Fetch transaction details by hash","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"tx_hash","required":true,"in":"query","description":"The unique idendifier of the transaction (transaction hash). Must be a 32 byte hex string starting with 0x","schema":{"example":"0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e","type":"string"}}],"responses":{"200":{"description":"Transaction details fetched successfully.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TransactionResponseDto"}}}},"400":{"description":"Invalid network name or transaction hash."},"404":{"description":"Transaction not found."}},"tags":["Transactions"]}},"/{network}/uniswap/eth-usd-price":{"get":{"operationId":"UniswapV3Controller_getETHToUSDTPrice","summary":"Get ETH to USDT price from Uniswap V3 pool on a specified network","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}}],"responses":{"200":{"description":"The ETH/USDT price.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UniswapETHUSDPriceInfoResponseDto"}}}},"400":{"description":"Invalid network name."}},"tags":["UniswapV3"]}},"/{network}/allowance/single":{"get":{"operationId":"AllowanceController_getAllowance","summary":"Get allowance by owner, spender, token, and block number for a given network.","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"owner","required":true,"in":"query","description":"The wallet address or ENS name of the owner.","schema":{"example":"0xa24D38b1B49E32c1c63731810a8D42ec9dd9aa8C","type":"string"}},{"name":"spender","required":true,"in":"query","description":"The wallet address or ENS name of the spender.","schema":{"example":"0x858646372CC42E1A627fcE94aa7A7033e7CF075A","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The contract address of the token.","schema":{"example":"0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84","type":"string"}},{"name":"block_height","required":false,"in":"query","description":"Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.","schema":{"example":"21021201","type":"number"}},{"name":"date","required":false,"in":"query","description":"Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.","schema":{"example":"2024-10-22T12:10:47.000Z","type":"string"}}],"responses":{"200":{"description":"The allowance data.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AllowanceResponseDto"}}}},"400":{"description":"Invalid request parameters."},"404":{"description":"Historical Allowance does not exist for this owner and spender."}},"tags":["Allowances"]}},"/{network}/balance/single":{"get":{"operationId":"BalanceController_getSingleBalance","summary":"Get balance by wallet, token, and block number or timestamp.","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"holder","required":true,"in":"query","description":"The wallet address or ENS name of the user.","schema":{"example":"vitalik.eth","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The unique identifier (contract address) of the token.","schema":{"example":"0xF2ec4a773ef90c58d98ea734c0eBDB538519b988","type":"string"}},{"name":"block_height","required":false,"in":"query","description":"Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.","schema":{"example":"21021201","type":"number"}},{"name":"date","required":false,"in":"query","description":"Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.","schema":{"example":"2024-10-22T12:10:47.000Z","type":"string"}}],"responses":{"200":{"description":"The balance data for a specific block or timestamp.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BalanceResponseDto"}}}},"400":{"description":"Invalid request parameters."},"404":{"description":"Historical Balance does not Exist for this holder."}},"tags":["Balances"]}},"/{network}/chain/block-height":{"get":{"operationId":"ChainController_getBlockHeight","summary":"Get the current block height","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported","schema":{"example":"eth-mainnet","type":"string"}}],"responses":{"200":{"description":"The current block height.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/BlockHeightResponseDto"}}}},"400":{"description":"Failed to fetch block height."}},"tags":["Chain"]}},"/{network}/chain/gas-price":{"get":{"operationId":"ChainController_getGasPrice","summary":"Get the current gas price","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"type","required":true,"in":"query","description":"Type of transaction: native token transfer, ERC20 transfer, or swap.","schema":{"example":"native_transfer","enum":["native_transfer","erc_transfer","swap"],"type":"string"}}],"responses":{"200":{"description":"The current gas price object.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/GasPriceResponseDto"}}}},"400":{"description":"Failed to fetch gas price."}},"tags":["Chain"]}},"/{network}/chain/block":{"get":{"operationId":"ChainController_getBlock","summary":"Get a block by block number or block hash on any supported network","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"block_height","required":false,"in":"query","description":"Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.","schema":{"example":"21021201","type":"number"}},{"name":"date","required":false,"in":"query","description":"Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.","schema":{"example":"2024-10-22T12:10:47.000Z","type":"string"}},{"name":"block_hash","required":false,"in":"query","description":"The block hash for which the block data is requested.","schema":{"example":"0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3","type":"string"}}],"responses":{"200":{"description":"The block details.","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/BlockResponseDto"}}}}},"400":{"description":"Failed to fetch block."},"404":{"description":"Block not found."}},"tags":["Chain"]}},"/{network}/nft/token-uri":{"get":{"operationId":"NFTController_getTokenUri","summary":"Get token URI for an ERC721 or ERC1155 token","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The contract address of the ERC721 or ERC1155 token.","schema":{"example":"0x630aa263CD2D9afed696AC6ca76268AFcD0ab1b2","type":"string"}},{"name":"token_id","required":true,"in":"query","description":"The token ID for which the token URI is requested.","schema":{"example":"1","type":"number"}}],"responses":{"200":{"description":"The token URI and metadata.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TokenUriResponseDto"}}}},"400":{"description":"Invalid contract or token ID."},"404":{"description":"Could not find token URI."}},"tags":["NFT"]}},"/{network}/nft/is-owner":{"get":{"operationId":"NFTController_isOwnerOfToken","summary":"Check if the user is the owner of an NFT. Works for both ERC721 and ERC1155","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The contract address of the ERC721 or ERC1155 token.","schema":{"example":"0xB3e782D5919924Faa456B5b5689B0A45963da4b7","type":"string"}},{"name":"owner","required":true,"in":"query","description":"The ENS name or address of the owner.","schema":{"example":"0xd5470BaFb6074B10107b303D0cCe03cA5539b6E3","type":"string"}},{"name":"token_id","required":true,"in":"query","description":"The token ID for which the token URI is requested.","schema":{"example":"1","type":"number"}},{"name":"block_height","required":false,"in":"query","description":"Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.","schema":{"example":"21021201","type":"number"}},{"name":"date","required":false,"in":"query","description":"Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.","schema":{"example":"2024-10-22T12:10:47.000Z","type":"string"}}],"responses":{"200":{"description":"Boolean indicating if the user is the owner of the NFT.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NFTOwnershipResponseDto"}}}},"400":{"description":"Invalid contract or token ID."},"404":{"description":"Failed to verify token ownership."}},"tags":["NFT"]}},"/{network}/token-supply":{"get":{"operationId":"TokenSupplyController_getTokenSupply","summary":"Get token supply by token address and block number for a given network.","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The contract address of the token or ENS name.","schema":{"example":"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045","type":"string"}},{"name":"block_height","required":false,"in":"query","description":"Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.","schema":{"example":"21021201","type":"number"}},{"name":"date","required":false,"in":"query","description":"Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.","schema":{"example":"2024-10-22T12:10:47.000Z","type":"string"}}],"responses":{"200":{"description":"The token supply data.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TokenSupplyResponseDto"}}}},"400":{"description":"Invalid request parameters."},"404":{"description":"Token supply not found"}},"tags":["TokenSupplies"]}},"/{network}/tokens":{"get":{"operationId":"TokenController_getTokens","summary":"Get a paginated list of tokens, optionally filter by type.","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_type","required":false,"in":"query","description":"Filter by token type (erc20, erc721, erc777, erc1155)","schema":{"example":"erc20","enum":["erc20","erc721","erc777","erc1155"],"type":"string"}},{"name":"page","required":false,"in":"query","description":"Page number for pagination","schema":{"example":1,"type":"number"}},{"name":"limit","required":false,"in":"query","description":"Number of tokens per page, Max 100 per page","schema":{"example":10,"type":"number"}}],"responses":{"200":{"description":"The paginated list of tokens.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PaginatedTokensResponseDto"}}}},"400":{"description":"Invalid request parameters."}},"tags":["Tokens"]}},"/{network}/tokens/single":{"get":{"operationId":"TokenController_getTokenByAddress","summary":"Get token by contract address.","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The unique identifier (contract address) of the token in hexadecimal format.","schema":{"example":"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045","type":"string"}}],"responses":{"200":{"description":"The token details.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/TokenResponseDto"}}}},"400":{"description":"Invalid request parameters."},"404":{"description":"Token not found."}},"tags":["Tokens"]}},"/{network}/contract/is-of-type":{"get":{"operationId":"ContractController_checkContractType","summary":"Check if a contract implements a specific ERC standard","parameters":[{"name":"network","required":true,"in":"path","description":"Blockchain network name or chain id, currently only eth-mainnet is supported","schema":{"example":"eth-mainnet","type":"string"}},{"name":"token_address","required":true,"in":"query","description":"The contract address of the token.","schema":{"example":"0xF2ec4a773ef90c58d98ea734c0eBDB538519b988","type":"string"}},{"name":"token_type","required":true,"in":"query","description":"Check for token type (erc20, erc721, erc777, erc1155)","schema":{"example":"erc20","enum":["erc20","erc721","erc777","erc1155"],"type":"string"}}],"responses":{"200":{"description":"Contract type check completed successfully.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ContractTypeResponseDto"}}}},"400":{"description":"Invalid network name or contract address."}},"tags":["Contract"]}}},"info":{"title":"Histori API","description":"API for token data and historical balances","version":"1.0.0","contact":{}},"tags":[],"servers":[{"url":"https://api.histori.xyz/v1","description":"Production server"}],"components":{"securitySchemes":{"apiKey":{"type":"apiKey","in":"header","name":"x-api-key"}},"schemas":{"LogEventDto":{"type":"object","properties":{"log_index":{"type":"number","description":"The index of the log event within the transaction.","example":1},"raw_log_topics":{"description":"The list of topics (event signatures) in the log event.","example":["0xddf252ad","0x000000000000000000000000abcd1234","0x000000000000000000000000ef567890"],"type":"array","items":{"type":"string"}},"sender_address":{"type":"string","description":"The address of the contract that emitted the log event.","example":"0x1234567890abcdef1234567890abcdef12345678"},"raw_log_data":{"type":"string","description":"The raw data contained in the log event.","example":"0xabcdef..."}},"required":["log_index","raw_log_topics","sender_address","raw_log_data"]},"TransactionDetailsDto":{"type":"object","properties":{"block_signed_at":{"type":"string","description":"The ISO timestamp when the block was signed.","example":"2024-10-22T15:04:23.000Z"},"block_height":{"type":"number","description":"The height (number) of the block.","example":21021896},"block_hash":{"type":"string","description":"The hash of the block that contains the transaction.","example":"0x064ea929af4b3a7077cefc68d0ced4f6ed59575581cc48effab64ac5feef1ce0"},"tx_hash":{"type":"string","description":"The transaction hash (unique identifier for the transaction).","example":"0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e"},"tx_index":{"type":"number","description":"The index of the transaction within the block.","example":144},"successful":{"type":"boolean","description":"Indicates whether the transaction was successful (true/false).","example":true},"from":{"type":"string","description":"The address that initiated the transaction.","example":"0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"},"miner":{"type":"string","description":"The address of the miner who mined the block (optional field).","example":"0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"},"to":{"type":"string","description":"The recipient address of the transaction. It can be null for contract creation transactions.","example":"0x4675C7e5BaAFBFFbca748158bEcBA61ef3b0a263","nullable":true},"value":{"type":"string","description":"The value transferred in the transaction, denominated in Ether.","example":"0.064970294810854029"},"gas_offered":{"type":"string","description":"The amount of gas offered by the sender for the transaction.","example":"21000"},"gas_spent":{"type":"string","description":"The amount of gas actually spent in the transaction.","example":"21000"},"gas_price":{"type":"string","description":"The price of gas for the transaction, denominated in gwei.","example":"13.499486147"},"fees_paid":{"type":"string","description":"The total transaction fees paid, denominated in Ether.","example":"0.000283489209087"},"input_data":{"type":"string","description":"The input data sent with the transaction, typically used for contract interactions.","example":"0x"},"explorer_url":{"type":"string","description":"A URL to view the transaction on a block explorer (e.g., Etherscan).","example":"https://etherscan.io/tx/0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e"},"log_events":{"description":"The list of log events emitted during the transaction.","type":"array","items":{"$ref":"#/components/schemas/LogEventDto"}}},"required":["block_signed_at","block_height","block_hash","tx_hash","tx_index","successful","from","to","value","gas_offered","gas_spent","gas_price","fees_paid","input_data","explorer_url","log_events"]},"TransactionResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"The blockchain network name (e.g., eth-mainnet).","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The ID of the blockchain network (e.g., Ethereum mainnet is 1).","example":1},"transaction":{"description":"The list of log events emitted during the transaction.","allOf":[{"$ref":"#/components/schemas/TransactionDetailsDto"}]}},"required":["network_name","chain_id","transaction"]},"UniswapETHUSDPriceInfoResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"The blockchain network name (e.g., eth-mainnet).","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The ID of the blockchain network (e.g., Ethereum mainnet is 1).","example":1},"block_height":{"type":"number","description":"Block number at the time of the snapshot","example":21028042},"price":{"type":"string","description":"The current price of ETH in USD.","example":"$2579.623678"}},"required":["network_name","chain_id","block_height","price"]},"AllowanceResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_address":{"type":"string","description":"The contract address of the token in hexadecimal format.","example":"0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"},"token_name":{"type":"string","description":"The name of the token.","example":"Liquid staked Ether 2.0"},"token_symbol":{"type":"string","description":"The symbol of the token.","example":"stETH"},"token_type":{"type":"string","description":"The ERC standard of the Token (erc20 or erc777)","example":"erc20"},"owner":{"type":"string","description":"The address of the owner.","example":"0xa24D38b1B49E32c1c63731810a8D42ec9dd9aa8C"},"spender":{"type":"string","description":"The address of the spender.","example":"0x858646372CC42E1A627fcE94aa7A7033e7CF075A"},"allowance":{"type":"string","description":"The allowance amount of the token, as a string. The amount is in the smallest unit of the token.","example":"115792089237316195423570985008687907853269984665640564039457584007913129639935"},"checked_at_block":{"type":"number","description":"The block number for which the allowance is requested.","example":20853281},"checked_at_timestamp":{"type":"string","description":"Timestamp for which the allowance is queried (ISO 8601 format).","example":"2024-10-17T09:03:59.000Z"}},"required":["network_name","chain_id","token_address","token_name","token_symbol","token_type","owner","spender","checked_at_block","checked_at_timestamp"]},"BalanceResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_address":{"type":"string","description":"The contract address of the token in hexadecimal format.","example":"0xF2ec4a773ef90c58d98ea734c0eBDB538519b988"},"token_name":{"type":"string","description":"The name of the token.","example":"Doge 2.0"},"token_symbol":{"type":"string","description":"The symbol of the token.","example":"DOGE2.0"},"token_type":{"type":"string","description":"The ERC standard of the Token (erc20 or erc777)","example":"erc20"},"holder":{"type":"string","description":"The address of the token holder.","example":"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"},"balance":{"type":"string","description":"The balance amount of the holder for the token in wei.","example":"42570000000000000000"},"checked_at_block":{"type":"number","description":"The block number for which the balance is requested.","example":20853281},"checked_at_timestamp":{"type":"string","description":"Timestamp for which the balance is queried (ISO 8601 format).","example":"2024-09-29T02:22:23.000Z"}},"required":["network_name","chain_id","token_address","token_name","token_symbol","token_type","holder","balance","checked_at_block","checked_at_timestamp"]},"BlockHeightResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"block_height":{"type":"number","description":"The current block height (number)."}},"required":["network_name","chain_id","block_height"]},"GasPriceResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"currency":{"type":"string","description":"The currency used (e.g., USD).","example":"USD"},"event_type":{"type":"string","description":"The type of transaction (e.g., native_transfer, erc20_transfer, swap).","example":"native_transfer"},"gas_required":{"type":"string","description":"The amount of gas required for the transaction.","example":"21000"},"total_cost_dollars":{"type":"string","description":"The total gas cost in USD.","example":"$69.143039"},"gas_cost_wei":{"type":"string","description":"The gas price in wei.","example":"13216708294"},"gas_cost_gwei":{"type":"string","description":"The gas price in gwei.","example":"13.216708294"},"gas_cost_eth":{"type":"string","description":"The gas price in ETH.","example":"0.000000013216708294"},"fee_dollars":{"type":"string","description":"The fee cost in USD. This goes to the miner/proposer of the block for the network.","example":"$69.139900"},"fee_wei":{"type":"string","description":"The fee cost in wei.","example":"26432216588"},"fee_gwei":{"type":"string","description":"The fee cost in gwei.","example":"26.432216588"},"fee_eth":{"type":"string","description":"The fee cost in ETH.","example":"0.000000026432216588"},"tip_dollars":{"type":"string","description":"The tip cost in USD.","example":"$0.003139\""},"tip_wei":{"type":"string","description":"The tip cost in wei.","example":"1200000"},"tip_gwei":{"type":"string","description":"The tip cost in gwei.","example":"0.0012"},"tip_eth":{"type":"string","description":"The tip cost in ETH.","example":"0.0000000000012"}},"required":["network_name","chain_id","currency","event_type","gas_required","total_cost_dollars","gas_cost_wei","gas_cost_gwei","gas_cost_eth","fee_dollars","fee_wei","fee_gwei","fee_eth","tip_dollars","tip_wei","tip_gwei","tip_eth"]},"BlockResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"block_hash":{"type":"string","description":"The hash of the block.","example":"0xa8c5c67a5d5a9b19fed27d6b290857ab4e389e73d41683ef1af80e1ddef337c5"},"signed_at":{"format":"date-time","type":"string","description":"The block signed time in ISO format.","example":"2024-10-12T16:35:47.000Z"},"signed_at_timestamp":{"type":"number","description":"The block signed timestamp (in seconds since epoch).","example":1728750947},"block_height":{"type":"number","description":"The block height (block number).","example":20950751},"block_parent_hash":{"type":"string","description":"The hash of the parent block.","example":"0xdaaa889de9758c641b32b118913f62f9c39e19b90f90a90ab4559ebbeab96d35"},"extra_data":{"type":"string","description":"The extra data attached to the block.","example":"0x6265617665726275696c642e6f7267"},"miner_address":{"type":"string","description":"The address of the miner who produced the block.","example":"0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"},"gas_used":{"type":"number","description":"The total amount of gas used in the block.","example":11873017},"gas_limit":{"type":"number","description":"The gas limit of the block.","example":30000000},"block_gas_cost":{"type":"string","description":"The cost of the block in USD.","example":"$0.031124"}},"required":["network_name","chain_id","block_hash","signed_at","signed_at_timestamp","block_height","block_parent_hash","extra_data","miner_address","gas_used","gas_limit","block_gas_cost"]},"TokenUriResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_id":{"type":"number","description":"The token ID for the specific NFT.","example":2},"token_uri":{"type":"string","description":"The URI of the token, which can be an HTTP or IPFS URL.","example":"https://ipfs.io/ipfs/QmXUpbiHn8R42REihF5K8iEdi5yq6Xg81nVTfETLfCfK6k/metadata.json"},"metadata":{"type":"object","description":"The metadata of the token, which can include images, attributes, and other data.","example":{"name":"peace","description":"peace","image":"https://ipfs.io/ipfs/Qmdw9iDyhb4V5njWgvPcCb71sdws2TZh77jEhqZn2TTiNE/nft.jpg"}}},"required":["network_name","chain_id","token_id","token_uri","metadata"]},"NFTOwnershipResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"is_owner":{"type":"boolean","description":"A boolean indicating whether the address owns the specified token.","example":true},"owner":{"type":"string","description":"The owner address of the NFT.","example":"0xd5470BaFb6074B10107b303D0cCe03cA5539b6E3"},"token_id":{"type":"number","description":"The token ID for the specific NFT.","example":1},"checked_at_block":{"type":"number","description":"The block number for which the allowance is requested.","example":20853281},"checked_at_timestamp":{"type":"string","description":"Timestamp for which the allowance is queried (ISO 8601 format).","example":"2024-10-17T09:03:59.000Z"}},"required":["network_name","chain_id","is_owner","owner","token_id","checked_at_block","checked_at_timestamp"]},"TokenSupplyResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_address":{"type":"string","description":"Token unique identifier (contract address) in hexadecimal format","example":"0x6b175474e89094c44da98b954eedeac495271d0f"},"block_height":{"type":"number","description":"Block number at the time of the snapshot","example":20980367},"total_supply":{"type":"string","description":"Total supply of the token at the given block number","example":"3361990858936672881079063694"}},"required":["network_name","chain_id","token_address","block_height","total_supply"]},"PaginatedTokensResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"page":{"type":"number","description":"The current page number","example":1},"limit":{"type":"number","description":"The number of tokens returned per page","example":10},"next":{"type":"string","description":"Link to the next page of tokens","example":"https://api.histori.xyz/v1/eth-mainnet/tokens?page=2&limit=10"},"previous":{"type":"string","description":"Link to the previous page of tokens","example":"https://api.histori.xyz/v1/eth-mainnet/tokens?page=1&limit=10"},"tokens":{"description":"The list of tokens for the current page","items":{"type":"array"},"type":"array"}},"required":["network_name","chain_id","page","limit","tokens"]},"TokenResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"Blockchain network name For the requested query","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_address":{"type":"string","description":"The contract address of the token.","example":"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"},"block_height":{"type":"number","description":"The block number at which the token was created.","example":12345678},"token_type":{"type":"string","description":"The type of the token (erc20, erc777, etc.).","example":"erc20"},"name":{"type":"string","description":"The name of the token.","example":"Wrapped Ether"},"symbol":{"type":"string","description":"The symbol of the token.","example":"WETH"},"decimals":{"type":"number","description":"The number of decimals for an ERC20 token (optional).","example":18},"granularity":{"type":"string","description":"The granularity of an ERC777 token (optional).","example":"1"}},"required":["network_name","chain_id","token_address","block_height","token_type","name","symbol"]},"ContractTypeResponseDto":{"type":"object","properties":{"network_name":{"type":"string","description":"The blockchain network name","example":"eth-mainnet"},"chain_id":{"type":"number","description":"The chain ID of the network.","example":1},"token_address":{"type":"string","description":"The contract address being checked","example":"0x6b175474e89094c44da98b954eedeac495271d0f"},"type_checked":{"type":"string","description":"The ERC standard being checked (erc20, erc721, erc1155, erc777)","example":"erc20"},"is_of_type":{"type":"boolean","description":"Whether the contract implements the specified ERC standard","example":true}},"required":["network_name","chain_id","token_address","type_checked","is_of_type"]}}},"security":[{"apiKey":[]}]}
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/{network}/transaction": {
+            "get": {
+                "operationId": "TransactionController_getTransactionDetails",
+                "summary": "Fetch transaction details by hash",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tx_hash",
+                        "required": true,
+                        "in": "query",
+                        "description": "The unique idendifier of the transaction (transaction hash). Must be a 32 byte hex string starting with 0x",
+                        "schema": {
+                            "example": "0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction details fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TransactionResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid network name or transaction hash."
+                    },
+                    "404": {
+                        "description": "Transaction not found."
+                    }
+                },
+                "tags": [
+                    "Transactions"
+                ]
+            }
+        },
+        "/{network}/uniswap/eth-usd-price": {
+            "get": {
+                "operationId": "UniswapV3Controller_getETHToUSDTPrice",
+                "summary": "Get ETH to USDT price from Uniswap V3 pool on a specified network",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The ETH/USDT price.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UniswapETHUSDPriceInfoResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid network name."
+                    }
+                },
+                "tags": [
+                    "UniswapV3"
+                ]
+            }
+        },
+        "/{network}/allowance/single": {
+            "get": {
+                "operationId": "AllowanceController_getAllowance",
+                "summary": "Get allowance by owner, spender, token, and block number for a given network.",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "owner",
+                        "required": true,
+                        "in": "query",
+                        "description": "The wallet address or ENS name of the owner.",
+                        "schema": {
+                            "example": "0xa24D38b1B49E32c1c63731810a8D42ec9dd9aa8C",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "spender",
+                        "required": true,
+                        "in": "query",
+                        "description": "The wallet address or ENS name of the spender.",
+                        "schema": {
+                            "example": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The contract address of the token.",
+                        "schema": {
+                            "example": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The allowance data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AllowanceResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request parameters."
+                    },
+                    "404": {
+                        "description": "Historical Allowance does not exist for this owner and spender."
+                    }
+                },
+                "tags": [
+                    "Allowances"
+                ]
+            }
+        },
+        "/{network}/balance/single": {
+            "get": {
+                "operationId": "BalanceController_getSingleBalance",
+                "summary": "Get balance by wallet, token, and block number or timestamp.",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "holder",
+                        "required": true,
+                        "in": "query",
+                        "description": "The wallet address or ENS name of the user.",
+                        "schema": {
+                            "example": "vitalik.eth",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The unique identifier (contract address) of the token.",
+                        "schema": {
+                            "example": "0xF2ec4a773ef90c58d98ea734c0eBDB538519b988",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The balance data for a specific block or timestamp.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BalanceResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request parameters."
+                    },
+                    "404": {
+                        "description": "Historical Balance does not Exist for this holder."
+                    }
+                },
+                "tags": [
+                    "Balances"
+                ]
+            }
+        },
+        "/{network}/chain/block-height": {
+            "get": {
+                "operationId": "ChainController_getBlockHeight",
+                "summary": "Get the current block height",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The current block height.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BlockHeightResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to fetch block height."
+                    }
+                },
+                "tags": [
+                    "Chain"
+                ]
+            }
+        },
+        "/{network}/chain/gas-price": {
+            "get": {
+                "operationId": "ChainController_getGasPrice",
+                "summary": "Get the current gas price",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "required": true,
+                        "in": "query",
+                        "description": "Type of transaction: native token transfer, ERC20 transfer, or swap.",
+                        "schema": {
+                            "example": "native_transfer",
+                            "enum": [
+                                "native_transfer",
+                                "erc_transfer",
+                                "swap"
+                            ],
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The current gas price object.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GasPriceResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to fetch gas price."
+                    }
+                },
+                "tags": [
+                    "Chain"
+                ]
+            }
+        },
+        "/{network}/chain/block": {
+            "get": {
+                "operationId": "ChainController_getBlock",
+                "summary": "Get a block by block number or block hash on any supported network",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_hash",
+                        "required": false,
+                        "in": "query",
+                        "description": "The block hash for which the block data is requested.",
+                        "schema": {
+                            "example": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The block details.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BlockResponseDto"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to fetch block."
+                    },
+                    "404": {
+                        "description": "Block not found."
+                    }
+                },
+                "tags": [
+                    "Chain"
+                ]
+            }
+        },
+        "/{network}/nft/token-uri": {
+            "get": {
+                "operationId": "NFTController_getTokenUri",
+                "summary": "Get token URI for an ERC721 or ERC1155 token",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The contract address of the ERC721 or ERC1155 token.",
+                        "schema": {
+                            "example": "0x630aa263CD2D9afed696AC6ca76268AFcD0ab1b2",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_id",
+                        "required": true,
+                        "in": "query",
+                        "description": "The token ID for which the token URI is requested.",
+                        "schema": {
+                            "example": "1",
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The token URI and metadata.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenUriResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid contract or token ID."
+                    },
+                    "404": {
+                        "description": "Could not find token URI."
+                    }
+                },
+                "tags": [
+                    "NFT"
+                ]
+            }
+        },
+        "/{network}/nft/is-owner": {
+            "get": {
+                "operationId": "NFTController_isOwnerOfToken",
+                "summary": "Check if the user is the owner of an NFT. Works for both ERC721 and ERC1155",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The contract address of the ERC721 or ERC1155 token.",
+                        "schema": {
+                            "example": "0xB3e782D5919924Faa456B5b5689B0A45963da4b7",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "owner",
+                        "required": true,
+                        "in": "query",
+                        "description": "The ENS name or address of the owner.",
+                        "schema": {
+                            "example": "0xd5470BaFb6074B10107b303D0cCe03cA5539b6E3",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_id",
+                        "required": true,
+                        "in": "query",
+                        "description": "The token ID for which the token URI is requested.",
+                        "schema": {
+                            "example": "1",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Boolean indicating if the user is the owner of the NFT.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NFTOwnershipResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid contract or token ID."
+                    },
+                    "404": {
+                        "description": "Failed to verify token ownership."
+                    }
+                },
+                "tags": [
+                    "NFT"
+                ]
+            }
+        },
+        "/{network}/token-supply": {
+            "get": {
+                "operationId": "TokenSupplyController_getTokenSupply",
+                "summary": "Get token supply by token address and block number for a given network.",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The contract address of the token or ENS name.",
+                        "schema": {
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The token supply data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenSupplyResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request parameters."
+                    },
+                    "404": {
+                        "description": "Token supply not found"
+                    }
+                },
+                "tags": [
+                    "TokenSupplies"
+                ]
+            }
+        },
+        "/{network}/tokens": {
+            "get": {
+                "operationId": "TokenController_getTokens",
+                "summary": "Get a paginated list of tokens, optionally filter by type.",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_type",
+                        "required": false,
+                        "in": "query",
+                        "description": "Filter by token type (erc20, erc721, erc777, erc1155)",
+                        "schema": {
+                            "example": "erc20",
+                            "enum": [
+                                "erc20",
+                                "erc721",
+                                "erc777",
+                                "erc1155"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "required": false,
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "schema": {
+                            "example": 1,
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "Number of tokens per page, Max 100 per page",
+                        "schema": {
+                            "example": 10,
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The paginated list of tokens.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PaginatedTokensResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request parameters."
+                    }
+                },
+                "tags": [
+                    "Tokens"
+                ]
+            }
+        },
+        "/{network}/tokens/single": {
+            "get": {
+                "operationId": "TokenController_getTokenByAddress",
+                "summary": "Get token by contract address.",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The unique identifier (contract address) of the token in hexadecimal format.",
+                        "schema": {
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The token details.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TokenResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request parameters."
+                    },
+                    "404": {
+                        "description": "Token not found."
+                    }
+                },
+                "tags": [
+                    "Tokens"
+                ]
+            }
+        },
+        "/{network}/contract/is-of-type": {
+            "get": {
+                "operationId": "ContractController_checkContractType",
+                "summary": "Check if a contract implements a specific ERC standard",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_address",
+                        "required": true,
+                        "in": "query",
+                        "description": "The contract address of the token.",
+                        "schema": {
+                            "example": "0xF2ec4a773ef90c58d98ea734c0eBDB538519b988",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_type",
+                        "required": true,
+                        "in": "query",
+                        "description": "Check for token type (erc20, erc721, erc777, erc1155)",
+                        "schema": {
+                            "example": "erc20",
+                            "enum": [
+                                "erc20",
+                                "erc721",
+                                "erc777",
+                                "erc1155"
+                            ],
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract type check completed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractTypeResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid network name or contract address."
+                    }
+                },
+                "tags": [
+                    "Contract"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "Histori API",
+        "description": "API for token data and historical balances",
+        "version": "1.0.0",
+        "contact": {}
+    },
+    "tags": [],
+    "servers": [
+        {
+            "url": "https://api.histori.xyz/v1",
+            "description": "Production server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "x-api-key"
+            }
+        },
+        "schemas": {
+            "LogEventDto": {
+                "type": "object",
+                "properties": {
+                    "log_index": {
+                        "type": "number",
+                        "description": "The index of the log event within the transaction.",
+                        "example": 1
+                    },
+                    "raw_log_topics": {
+                        "description": "The list of topics (event signatures) in the log event.",
+                        "example": [
+                            "0xddf252ad",
+                            "0x000000000000000000000000abcd1234",
+                            "0x000000000000000000000000ef567890"
+                        ],
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "sender_address": {
+                        "type": "string",
+                        "description": "The address of the contract that emitted the log event.",
+                        "example": "0x1234567890abcdef1234567890abcdef12345678"
+                    },
+                    "raw_log_data": {
+                        "type": "string",
+                        "description": "The raw data contained in the log event.",
+                        "example": "0xabcdef..."
+                    }
+                },
+                "required": [
+                    "log_index",
+                    "raw_log_topics",
+                    "sender_address",
+                    "raw_log_data"
+                ]
+            },
+            "TransactionDetailsDto": {
+                "type": "object",
+                "properties": {
+                    "block_signed_at": {
+                        "type": "string",
+                        "description": "The ISO timestamp when the block was signed.",
+                        "example": "2024-10-22T15:04:23.000Z"
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "The height (number) of the block.",
+                        "example": 21021896
+                    },
+                    "block_hash": {
+                        "type": "string",
+                        "description": "The hash of the block that contains the transaction.",
+                        "example": "0x064ea929af4b3a7077cefc68d0ced4f6ed59575581cc48effab64ac5feef1ce0"
+                    },
+                    "tx_hash": {
+                        "type": "string",
+                        "description": "The transaction hash (unique identifier for the transaction).",
+                        "example": "0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e"
+                    },
+                    "tx_index": {
+                        "type": "number",
+                        "description": "The index of the transaction within the block.",
+                        "example": 144
+                    },
+                    "successful": {
+                        "type": "boolean",
+                        "description": "Indicates whether the transaction was successful (true/false).",
+                        "example": true
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "The address that initiated the transaction.",
+                        "example": "0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"
+                    },
+                    "miner": {
+                        "type": "string",
+                        "description": "The address of the miner who mined the block (optional field).",
+                        "example": "0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "The recipient address of the transaction. It can be null for contract creation transactions.",
+                        "example": "0x4675C7e5BaAFBFFbca748158bEcBA61ef3b0a263",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value transferred in the transaction, denominated in Ether.",
+                        "example": "0.064970294810854029"
+                    },
+                    "gas_offered": {
+                        "type": "string",
+                        "description": "The amount of gas offered by the sender for the transaction.",
+                        "example": "21000"
+                    },
+                    "gas_spent": {
+                        "type": "string",
+                        "description": "The amount of gas actually spent in the transaction.",
+                        "example": "21000"
+                    },
+                    "gas_price": {
+                        "type": "string",
+                        "description": "The price of gas for the transaction, denominated in gwei.",
+                        "example": "13.499486147"
+                    },
+                    "fees_paid": {
+                        "type": "string",
+                        "description": "The total transaction fees paid, denominated in Ether.",
+                        "example": "0.000283489209087"
+                    },
+                    "input_data": {
+                        "type": "string",
+                        "description": "The input data sent with the transaction, typically used for contract interactions.",
+                        "example": "0x"
+                    },
+                    "explorer_url": {
+                        "type": "string",
+                        "description": "A URL to view the transaction on a block explorer (e.g., Etherscan).",
+                        "example": "https://etherscan.io/tx/0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e"
+                    },
+                    "log_events": {
+                        "description": "The list of log events emitted during the transaction.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LogEventDto"
+                        }
+                    }
+                },
+                "required": [
+                    "block_signed_at",
+                    "block_height",
+                    "block_hash",
+                    "tx_hash",
+                    "tx_index",
+                    "successful",
+                    "from",
+                    "to",
+                    "value",
+                    "gas_offered",
+                    "gas_spent",
+                    "gas_price",
+                    "fees_paid",
+                    "input_data",
+                    "explorer_url",
+                    "log_events"
+                ]
+            },
+            "TransactionResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "The blockchain network name (e.g., eth-mainnet).",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The ID of the blockchain network (e.g., Ethereum mainnet is 1).",
+                        "example": 1
+                    },
+                    "transaction": {
+                        "description": "The list of log events emitted during the transaction.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TransactionDetailsDto"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "transaction"
+                ]
+            },
+            "UniswapETHUSDPriceInfoResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "The blockchain network name (e.g., eth-mainnet).",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The ID of the blockchain network (e.g., Ethereum mainnet is 1).",
+                        "example": 1
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "Block number at the time of the snapshot",
+                        "example": 21028042
+                    },
+                    "price": {
+                        "type": "string",
+                        "description": "The current price of ETH in USD.",
+                        "example": "$2579.623678"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "block_height",
+                    "price"
+                ]
+            },
+            "AllowanceResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_address": {
+                        "type": "string",
+                        "description": "The contract address of the token in hexadecimal format.",
+                        "example": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+                    },
+                    "token_name": {
+                        "type": "string",
+                        "description": "The name of the token.",
+                        "example": "Liquid staked Ether 2.0"
+                    },
+                    "token_symbol": {
+                        "type": "string",
+                        "description": "The symbol of the token.",
+                        "example": "stETH"
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "The ERC standard of the Token (erc20 or erc777)",
+                        "example": "erc20"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The address of the owner.",
+                        "example": "0xa24D38b1B49E32c1c63731810a8D42ec9dd9aa8C"
+                    },
+                    "spender": {
+                        "type": "string",
+                        "description": "The address of the spender.",
+                        "example": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A"
+                    },
+                    "allowance": {
+                        "type": "string",
+                        "description": "The allowance amount of the token, as a string. The amount is in the smallest unit of the token.",
+                        "example": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+                    },
+                    "checked_at_block": {
+                        "type": "number",
+                        "description": "The block number for which the allowance is requested.",
+                        "example": 20853281
+                    },
+                    "checked_at_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp for which the allowance is queried (ISO 8601 format).",
+                        "example": "2024-10-17T09:03:59.000Z"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_address",
+                    "token_name",
+                    "token_symbol",
+                    "token_type",
+                    "owner",
+                    "spender",
+                    "checked_at_block",
+                    "checked_at_timestamp"
+                ]
+            },
+            "BalanceResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_address": {
+                        "type": "string",
+                        "description": "The contract address of the token in hexadecimal format.",
+                        "example": "0xF2ec4a773ef90c58d98ea734c0eBDB538519b988"
+                    },
+                    "token_name": {
+                        "type": "string",
+                        "description": "The name of the token.",
+                        "example": "Doge 2.0"
+                    },
+                    "token_symbol": {
+                        "type": "string",
+                        "description": "The symbol of the token.",
+                        "example": "DOGE2.0"
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "The ERC standard of the Token (erc20 or erc777)",
+                        "example": "erc20"
+                    },
+                    "holder": {
+                        "type": "string",
+                        "description": "The address of the token holder.",
+                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                    },
+                    "balance": {
+                        "type": "string",
+                        "description": "The balance amount of the holder for the token in wei.",
+                        "example": "42570000000000000000"
+                    },
+                    "checked_at_block": {
+                        "type": "number",
+                        "description": "The block number for which the balance is requested.",
+                        "example": 20853281
+                    },
+                    "checked_at_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp for which the balance is queried (ISO 8601 format).",
+                        "example": "2024-09-29T02:22:23.000Z"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_address",
+                    "token_name",
+                    "token_symbol",
+                    "token_type",
+                    "holder",
+                    "balance",
+                    "checked_at_block",
+                    "checked_at_timestamp"
+                ]
+            },
+            "BlockHeightResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "The current block height (number)."
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "block_height"
+                ]
+            },
+            "GasPriceResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "The currency used (e.g., USD).",
+                        "example": "USD"
+                    },
+                    "event_type": {
+                        "type": "string",
+                        "description": "The type of transaction (e.g., native_transfer, erc20_transfer, swap).",
+                        "example": "native_transfer"
+                    },
+                    "gas_required": {
+                        "type": "string",
+                        "description": "The amount of gas required for the transaction.",
+                        "example": "21000"
+                    },
+                    "total_cost_dollars": {
+                        "type": "string",
+                        "description": "The total gas cost in USD.",
+                        "example": "$69.143039"
+                    },
+                    "gas_cost_wei": {
+                        "type": "string",
+                        "description": "The gas price in wei.",
+                        "example": "13216708294"
+                    },
+                    "gas_cost_gwei": {
+                        "type": "string",
+                        "description": "The gas price in gwei.",
+                        "example": "13.216708294"
+                    },
+                    "gas_cost_eth": {
+                        "type": "string",
+                        "description": "The gas price in ETH.",
+                        "example": "0.000000013216708294"
+                    },
+                    "fee_dollars": {
+                        "type": "string",
+                        "description": "The fee cost in USD. This goes to the miner/proposer of the block for the network.",
+                        "example": "$69.139900"
+                    },
+                    "fee_wei": {
+                        "type": "string",
+                        "description": "The fee cost in wei.",
+                        "example": "26432216588"
+                    },
+                    "fee_gwei": {
+                        "type": "string",
+                        "description": "The fee cost in gwei.",
+                        "example": "26.432216588"
+                    },
+                    "fee_eth": {
+                        "type": "string",
+                        "description": "The fee cost in ETH.",
+                        "example": "0.000000026432216588"
+                    },
+                    "tip_dollars": {
+                        "type": "string",
+                        "description": "The tip cost in USD.",
+                        "example": "$0.003139\""
+                    },
+                    "tip_wei": {
+                        "type": "string",
+                        "description": "The tip cost in wei.",
+                        "example": "1200000"
+                    },
+                    "tip_gwei": {
+                        "type": "string",
+                        "description": "The tip cost in gwei.",
+                        "example": "0.0012"
+                    },
+                    "tip_eth": {
+                        "type": "string",
+                        "description": "The tip cost in ETH.",
+                        "example": "0.0000000000012"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "currency",
+                    "event_type",
+                    "gas_required",
+                    "total_cost_dollars",
+                    "gas_cost_wei",
+                    "gas_cost_gwei",
+                    "gas_cost_eth",
+                    "fee_dollars",
+                    "fee_wei",
+                    "fee_gwei",
+                    "fee_eth",
+                    "tip_dollars",
+                    "tip_wei",
+                    "tip_gwei",
+                    "tip_eth"
+                ]
+            },
+            "BlockResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "block_hash": {
+                        "type": "string",
+                        "description": "The hash of the block.",
+                        "example": "0xa8c5c67a5d5a9b19fed27d6b290857ab4e389e73d41683ef1af80e1ddef337c5"
+                    },
+                    "signed_at": {
+                        "format": "date-time",
+                        "type": "string",
+                        "description": "The block signed time in ISO format.",
+                        "example": "2024-10-12T16:35:47.000Z"
+                    },
+                    "signed_at_timestamp": {
+                        "type": "number",
+                        "description": "The block signed timestamp (in seconds since epoch).",
+                        "example": 1728750947
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "The block height (block number).",
+                        "example": 20950751
+                    },
+                    "block_parent_hash": {
+                        "type": "string",
+                        "description": "The hash of the parent block.",
+                        "example": "0xdaaa889de9758c641b32b118913f62f9c39e19b90f90a90ab4559ebbeab96d35"
+                    },
+                    "extra_data": {
+                        "type": "string",
+                        "description": "The extra data attached to the block.",
+                        "example": "0x6265617665726275696c642e6f7267"
+                    },
+                    "miner_address": {
+                        "type": "string",
+                        "description": "The address of the miner who produced the block.",
+                        "example": "0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"
+                    },
+                    "gas_used": {
+                        "type": "number",
+                        "description": "The total amount of gas used in the block.",
+                        "example": 11873017
+                    },
+                    "gas_limit": {
+                        "type": "number",
+                        "description": "The gas limit of the block.",
+                        "example": 30000000
+                    },
+                    "block_gas_cost": {
+                        "type": "string",
+                        "description": "The cost of the block in USD.",
+                        "example": "$0.031124"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "block_hash",
+                    "signed_at",
+                    "signed_at_timestamp",
+                    "block_height",
+                    "block_parent_hash",
+                    "extra_data",
+                    "miner_address",
+                    "gas_used",
+                    "gas_limit",
+                    "block_gas_cost"
+                ]
+            },
+            "TokenUriResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_id": {
+                        "type": "number",
+                        "description": "The token ID for the specific NFT.",
+                        "example": 2
+                    },
+                    "token_uri": {
+                        "type": "string",
+                        "description": "The URI of the token, which can be an HTTP or IPFS URL.",
+                        "example": "https://ipfs.io/ipfs/QmXUpbiHn8R42REihF5K8iEdi5yq6Xg81nVTfETLfCfK6k/metadata.json"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "The metadata of the token, which can include images, attributes, and other data.",
+                        "example": {
+                            "name": "peace",
+                            "description": "peace",
+                            "image": "https://ipfs.io/ipfs/Qmdw9iDyhb4V5njWgvPcCb71sdws2TZh77jEhqZn2TTiNE/nft.jpg"
+                        }
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_id",
+                    "token_uri",
+                    "metadata"
+                ]
+            },
+            "NFTOwnershipResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "is_owner": {
+                        "type": "boolean",
+                        "description": "A boolean indicating whether the address owns the specified token.",
+                        "example": true
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The owner address of the NFT.",
+                        "example": "0xd5470BaFb6074B10107b303D0cCe03cA5539b6E3"
+                    },
+                    "token_id": {
+                        "type": "number",
+                        "description": "The token ID for the specific NFT.",
+                        "example": 1
+                    },
+                    "checked_at_block": {
+                        "type": "number",
+                        "description": "The block number for which the allowance is requested.",
+                        "example": 20853281
+                    },
+                    "checked_at_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp for which the allowance is queried (ISO 8601 format).",
+                        "example": "2024-10-17T09:03:59.000Z"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "is_owner",
+                    "owner",
+                    "token_id",
+                    "checked_at_block",
+                    "checked_at_timestamp"
+                ]
+            },
+            "TokenSupplyResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_address": {
+                        "type": "string",
+                        "description": "Token unique identifier (contract address) in hexadecimal format",
+                        "example": "0x6b175474e89094c44da98b954eedeac495271d0f"
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "Block number at the time of the snapshot",
+                        "example": 20980367
+                    },
+                    "total_supply": {
+                        "type": "string",
+                        "description": "Total supply of the token at the given block number",
+                        "example": "3361990858936672881079063694"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_address",
+                    "block_height",
+                    "total_supply"
+                ]
+            },
+            "PaginatedTokensResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "page": {
+                        "type": "number",
+                        "description": "The current page number",
+                        "example": 1
+                    },
+                    "limit": {
+                        "type": "number",
+                        "description": "The number of tokens returned per page",
+                        "example": 10
+                    },
+                    "next": {
+                        "type": "string",
+                        "description": "Link to the next page of tokens",
+                        "example": "https://api.histori.xyz/v1/eth-mainnet/tokens?page=2&limit=10"
+                    },
+                    "previous": {
+                        "type": "string",
+                        "description": "Link to the previous page of tokens",
+                        "example": "https://api.histori.xyz/v1/eth-mainnet/tokens?page=1&limit=10"
+                    },
+                    "tokens": {
+                        "description": "The list of tokens for the current page",
+                        "items": {
+                            "type": "array"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "page",
+                    "limit",
+                    "tokens"
+                ]
+            },
+            "TokenResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "Blockchain network name For the requested query",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_address": {
+                        "type": "string",
+                        "description": "The contract address of the token.",
+                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "The block number at which the token was created.",
+                        "example": 12345678
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "The type of the token (erc20, erc777, etc.).",
+                        "example": "erc20"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the token.",
+                        "example": "Wrapped Ether"
+                    },
+                    "symbol": {
+                        "type": "string",
+                        "description": "The symbol of the token.",
+                        "example": "WETH"
+                    },
+                    "decimals": {
+                        "type": "number",
+                        "description": "The number of decimals for an ERC20 token (optional).",
+                        "example": 18
+                    },
+                    "granularity": {
+                        "type": "string",
+                        "description": "The granularity of an ERC777 token (optional).",
+                        "example": "1"
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_address",
+                    "block_height",
+                    "token_type",
+                    "name",
+                    "symbol"
+                ]
+            },
+            "ContractTypeResponseDto": {
+                "type": "object",
+                "properties": {
+                    "network_name": {
+                        "type": "string",
+                        "description": "The blockchain network name",
+                        "example": "eth-mainnet"
+                    },
+                    "chain_id": {
+                        "type": "number",
+                        "description": "The chain ID of the network.",
+                        "example": 1
+                    },
+                    "token_address": {
+                        "type": "string",
+                        "description": "The contract address being checked",
+                        "example": "0x6b175474e89094c44da98b954eedeac495271d0f"
+                    },
+                    "type_checked": {
+                        "type": "string",
+                        "description": "The ERC standard being checked (erc20, erc721, erc1155, erc777)",
+                        "example": "erc20"
+                    },
+                    "is_of_type": {
+                        "type": "boolean",
+                        "description": "Whether the contract implements the specified ERC standard",
+                        "example": true
+                    }
+                },
+                "required": [
+                    "network_name",
+                    "chain_id",
+                    "token_address",
+                    "type_checked",
+                    "is_of_type"
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKey": []
+        }
+    ]
+}
