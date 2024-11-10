@@ -57,8 +57,8 @@ Here’s an overview of relevant contract addresses:
 |-------------------|-------------------|---------|------|
 | Histori Token     | Ethereum Mainnet  | 0x7535a0d4abB00f646b5991e3d3D8e9A0E1721abE | [View on Etherscan](https://etherscan.io/address/0x7535a0d4abb00f646b5991e3d3d8e9a0e1721abe) |
 | Histori Token     | zkSync Mainnet    | 0x7ce1a4b50334ada32a915056f3015eebc29c5964 | [View on zkSync](https://era.zksync.network/token/0x7ce1a4b50334ada32a915056f3015eebc29c5964) |
-| Deposit Contract  | zkSync Mainnet    | TBD     | TBD |
-| Vesting Contract  | zkSync Mainnet    | TBD     | TBD |
+| Deposit Contract  | zkSync Mainnet    | 0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8     | [View on zkSync](https://era.zksync.network/token/0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8) |
+| Vesting Contract  | zkSync Mainnet    | 0x16Cc130eA1ff7E39FFAb80ED5A9FEaE19547aD49     | [View on zkSync](https://era.zksync.network/token/0x16Cc130eA1ff7E39FFAb80ED5A9FEaE19547aD49) |
 
 For developers or testers, feel free to reach out if you need Sepolia test HST tokens for experimentation.
 
