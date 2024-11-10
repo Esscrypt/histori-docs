@@ -1,14 +1,14 @@
-## Tokenomics
+# Tokenomics
 
-### Overview
+## Overview
 
 The Histori (HST) token is designed to support the ecosystem of our blockchain data access platform, enabling users to stake, earn rewards, and participate in governance. The tokenomics of HST reflects our commitment to sustainability, community involvement, and long-term value creation.
 
-### Total Supply
+## Total Supply
 
 - **Initial and Final Total Supply**: 10,000,000 HST
 
-### Token Allocation
+## Token Allocation
 
 | Category                | Percentage of Total Supply | Amount (HST)      | Vesting Period                      |
 |-------------------------|---------------------------|--------------------|-------------------------------------|
@@ -23,7 +23,7 @@ The Histori (HST) token is designed to support the ecosystem of our blockchain d
 | **Early Adopters**      | 5%                        | 500,000 HST        | 6-month cliff, then 12 months linear vesting |
 | **Initial Coin Offering (ICO)** | 10%            | 1,000,000 HST        | Available during the ICO period     |
 
-### How Staking Works
+## How Staking Works
 
 Staking HST tokens provides users with several benefits beyond access to the platform:
 
@@ -42,11 +42,11 @@ Staking HST tokens provides users with several benefits beyond access to the pla
 4. **Dynamic Pricing Mechanism**:
    - The staking mechanism will utilize a dynamic pricing approach, where the required staking amounts for each tier may adjust based on market conditions and the current value of HST. This ensures fairness and responsiveness to fluctuations in the token's market price.
 
-### Permit Mechanism for Gas Savings
+## Permit Mechanism for Gas Savings
 
 The **Histori (HST) token** supports a permit mechanism, allowing users to save on gas fees compared to traditional ERC20 token approvals. With the permit mechanism, users can authorize token deposits with a **single transaction**, eliminating the need for separate `approve` and `deposit` calls.
 
-### Vesting Details
+## Vesting Details
 
 1. **Investors**: Investors will have a 12-month cliff, meaning they will receive no tokens during the first year. After the cliff, tokens will vest linearly over the next 24 months.
    
@@ -60,6 +60,6 @@ The **Histori (HST) token** supports a permit mechanism, allowing users to save 
 
 6. **Staking Rewards and Development Fund**: These will be allocated gradually to encourage participation and platform development, ensuring a steady flow of tokens to users and developers.
 
-### Conclusion
+## Conclusion
 
 The Histori tokenomics is designed to balance the needs of investors, team members, and the broader community while fostering sustainable growth. With a clear allocation strategy and growth projections, HST aims to incentivize long-term engagement and establish a robust ecosystem for accessing historical blockchain data. The inclusion of early adopters and an ICO ensures that the community is actively involved from the outset, enhancing the project's reach and impact. Staking offers numerous benefits, rewarding users for their commitment to the Histori platform.
