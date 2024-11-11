@@ -33,14 +33,13 @@ Here’s an example of how to query the balance of an Ethereum address on the `e
 **Endpoint:**
 
 ```bash
-GET /v1/{:network_name}/balance/single?tokenAddress={:token_address}&holder={:holder}&blockNumber={:block_number}
+GET /v1/{:network_name}/balance/single?token_address={:token_address}&holder={:holder}&block_height={:block_height}
 ```
 - **`network_name`**: The blockchain network (e.g., eth-mainnet).
 - **`holder`**: The wallet address or ENS name of the holder you want to query.
 - **`token_address`**: The contract address of the token.
 - **`block_height`**: You can `optionally` specify a block number for which you want to query the data
-- **`date`**: You can `optionally` specify a Date for which you want to query the data. 
-- You can specify either `date` or `block_height`, but not both as they refer to the same timestamp.
+- **`date`**: You can `optionally` specify a Date for which you want to query the data. You can specify either `date` or `block_height`, but not both as they refer to the same timestamp.
   
 ### Example API call
 ``` bash
