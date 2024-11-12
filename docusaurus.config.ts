@@ -117,6 +117,25 @@ const config: Config = {
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
           includeCurrentVersion: true,
         },
+        gtag: {
+          trackingID: 'G-T153GPV90L',
+          anonymizeIP: true,
+        },
+        googleTagManager: {
+          containerId: 'GTM-TFWH8JNT',
+        },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -150,6 +169,34 @@ const config: Config = {
         }
       }
     ],
+    // [
+    //   '@docusaurus/plugin-pwa',
+    //   {
+    //     debug: false, // Set to true if you want to see debugging logs
+    //     offlineModeActivationStrategies: [
+    //       'appInstalled',
+    //       'standalone',
+    //       'queryString',
+    //     ],
+    //     pwaHead: [
+    //       {
+    //         tagName: 'link',
+    //         rel: 'icon',
+    //         href: '/img/docusaurus.png',
+    //       },
+    //       {
+    //         tagName: 'link',
+    //         rel: 'manifest',
+    //         href: '/manifest.json', // your PWA manifest
+    //       },
+    //       {
+    //         tagName: 'meta',
+    //         name: 'theme-color',
+    //         content: 'rgb(37, 194, 160)',
+    //       },
+    //     ],
+    //   },
+    // ],
     [
       '@docusaurus/plugin-client-redirects',
       {
