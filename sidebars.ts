@@ -19,6 +19,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: "doc",
+      label: "Supported Networks",
+      id: "networks", // Directly link to the single Networks markdown file
+    },
+    {
       type: 'category',
       label: 'Histori SDK',
       items: [

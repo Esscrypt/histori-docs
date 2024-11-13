@@ -10,7 +10,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -59,7 +59,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -95,7 +95,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -184,7 +184,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -263,7 +263,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -299,7 +299,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -350,7 +350,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -422,7 +422,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -481,7 +481,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -570,7 +570,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -639,7 +639,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -711,7 +711,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet (or 1) is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"
@@ -760,7 +760,7 @@
                         "name": "network",
                         "required": true,
                         "in": "path",
-                        "description": "Blockchain network name or chain id, currently only eth-mainnet is supported",
+                        "description": "Blockchain network name or chain id",
                         "schema": {
                             "example": "eth-mainnet",
                             "type": "string"

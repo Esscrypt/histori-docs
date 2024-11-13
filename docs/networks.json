@@ -1,0 +1,294 @@
+[
+    {
+        "name": "Ethereum Mainnet",
+        "networkId": "eth-mainnet",
+        "chainId": 1,
+        "active": true,
+        "history": true,
+        "blockExplorer": "https://etherscan.io/",
+        "blockTime": 12
+    },
+    {
+        "name": "Polygon Mainnet",
+        "networkId": "matic-mainnet",
+        "chainId": 137,
+        "active": true,
+        "history": true,
+        "blockExplorer": "https://polygonscan.com/",
+        "blockTime": 3
+    },
+    {
+        "name": "zkSync Era Mainnet",
+        "networkId": "zksync-mainnet",
+        "chainId": 324,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.zksync.io/",
+        "blockTime": 10
+    },
+    {
+        "name": "Ethereum Sepolia Testnet",
+        "networkId": "eth-sepolia",
+        "chainId": 11155111,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://sepolia.etherscan.io/",
+        "blockTime": 12
+    },
+    {
+        "name": "Optimism Mainnet",
+        "networkId": "opt-mainnet",
+        "chainId": 10,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://optimistic.etherscan.io/",
+        "blockTime": 2
+    },
+    {
+        "name": "Arbitrum Mainnet",
+        "networkId": "arb-mainnet",
+        "chainId": 42161,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://arbiscan.io/",
+        "blockTime": 1
+    },
+    {
+        "name": "Base",
+        "networkId": "base-mainnet",
+        "chainId": 8453,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://basescan.org/",
+        "blockTime": 2
+    },
+    {
+        "name": "Polygon zkEVM Mainnet",
+        "networkId": "polygon-zkevm-mainnet",
+        "chainId": 1101,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://zkevm.polygonscan.com/",
+        "blockTime": 13
+    },
+    {
+        "name": "Binance Smart Chain Mainnet (BSC)",
+        "networkId": "bsc-mainnet",
+        "chainId": 56,
+        "active": true,
+        "history": true,
+        "blockExplorer": "https://bscscan.com/",
+        "blockTime": 5
+
+    },
+    {
+        "name": "Avalanche Mainnet",
+        "networkId": "avalanche-mainnet",
+        "chainId": 43114,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://avascan.info/blockchain/c/",
+        "blockTime": 3
+    },
+    {
+        "name": "ApeChain Mainnet",
+        "networkId": "ape-mainnet",
+        "chainId": 33139,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://apechain.calderaexplorer.xyz/",
+        "blockTime": 1
+    },
+    {
+        "name": "Linea Mainnet",
+        "networkId": "linea-mainnet",
+        "chainId": 59144,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://lineascan.build/",
+        "blockTime": 10
+    },
+    {
+        "name": "Scroll Mainnet",
+        "networkId": "scroll-mainnet",
+        "chainId": 534352,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://blockscout.scroll.io/",
+        "blockTime": 3
+    },
+    {
+        "name": "Blast Mainnet",
+        "networkId": "blast-mainnet",
+        "chainId": 81457,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://blastexplorer.io/",
+        "blockTime": 2
+    },
+    {
+        "name": "Mantle Mainnet",
+        "networkId": "mantle-mainnet",
+        "chainId": 5000,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.mantle.xyz/",
+        "blockTime": 15
+    },
+    {
+        "name": "Celo Mainnet",
+        "networkId": "celo-mainnet",
+        "chainId": 42220,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.celo.org/",
+        "blockTime": 5
+
+    },
+    {
+        "name": "WorldChain Mainnet",
+        "networkId": "worldchain-mainnet",
+        "chainId": 480,
+        "history": false,
+        "active": true
+    },
+    {
+        "name": "Palm Mainnet",
+        "networkId": "palm-mainnet",
+        "chainId": 11297108109,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.palm.io/",
+        "blockTime": 6
+    },
+    {
+        "name": "Shape Mainnet",
+        "networkId": "shape-mainnet",
+        "chainId": 360,
+        "active": true,
+        "history": false
+    },
+    {
+        "name": "Geist Mainnet",
+        "networkId": "geist-mainnet",
+        "chainId": 63157,
+        "active": true,
+        "history": false
+    },
+    {
+        "name": "Arbitrum Nova",
+        "networkId": "arbitrum-nova-mainnet",
+        "chainId": 42170,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://nova.arbiscan.io/",
+        "blockTime": 5
+    },
+    {
+        "name": "Astar Mainnet",
+        "networkId": "astar-mainnet",
+        "chainId": 592,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://blockscout.com/astar"
+    },
+    {
+        "name": "ZetaChain Mainnet",
+        "networkId": "zetachain-mainnet",
+        "chainId": 7000,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.zetachain.com/",
+        "blockTime": 5
+    },
+    {
+        "name": "Fantom Mainnet",
+        "networkId": "fantom-mainnet",
+        "chainId": 250,
+        "blockTime": 2,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://ftmscan.com/"
+    },
+    {
+        "name": "Fraxtal Mainnet",
+        "networkId": "fraxtal-mainnet",
+        "chainId": 252,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://fraxscan.com/",
+        "blockTime": 2
+    },
+    {
+        "name": "Berachain bArtio",
+        "networkId": "berachain-testnet",
+        "chainId": 80084,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://bartio.beratrail.io/",
+        "blockTime": 2
+    },
+    {
+        "name": "Zora Mainnet",
+        "networkId": "zora-mainnet",
+        "chainId": 7777777,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://explorer.zora.energy/",
+        "blockTime": 2
+    },
+    {
+        "name": "Polynomial Mainnet",
+        "networkId": "polynomial-mainnet",
+        "chainId": 8008,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://polynomialscan.io/",
+        "blockTime": 2
+    },
+    {
+        "name": "Flow EVM Mainnet",
+        "networkId": "flow-evm-mainnet",
+        "chainId": 747,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://evm.flowscan.io/",
+        "blockTime": 0.8
+    },
+    {
+        "name": "Lens Testnet",
+        "networkId": "lens-testnet",
+        "chainId": 2021,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://block-explorer.testnet.lens.dev/",
+        "blockTime": "varies"
+    },
+    {
+        "name": "Soneium Minato Testnet",
+        "networkId": "soneium-minato-testnet",
+        "chainId": 1946,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://soneium-minato.blockscout.com/",
+        "blockTime": 2
+    },
+    {
+        "name": "Rootstock Mainnet",
+        "networkId": "rsk-mainnet",
+        "chainId": 30,
+        "active": true,
+        "history": false,
+        "blockTime": 31,
+        "blockExplorer": "https://explorer.rsk.co/"
+    },
+    {
+        "name": "Unichain Testnet",
+        "networkId": "unichain-sepolia-testnet",
+        "chainId": 1301,
+        "active": true,
+        "history": false,
+        "blockExplorer": "https://unichain-sepolia.blockscout.com/",
+        "blockTime": 1
+    }
+]
