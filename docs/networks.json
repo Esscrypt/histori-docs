@@ -37,7 +37,7 @@
     },
     {
         "name": "Optimism Mainnet",
-        "networkId": "opt-mainnet",
+        "networkId": "optimism-mainnet",
         "chainId": 10,
         "active": true,
         "history": false,
@@ -46,7 +46,7 @@
     },
     {
         "name": "Arbitrum Mainnet",
-        "networkId": "arb-mainnet",
+        "networkId": "arbitrum-mainnet",
         "chainId": 42161,
         "active": true,
         "history": false,
@@ -92,7 +92,7 @@
     },
     {
         "name": "ApeChain Mainnet",
-        "networkId": "ape-mainnet",
+        "networkId": "apechain-mainnet",
         "chainId": 33139,
         "active": true,
         "history": false,
