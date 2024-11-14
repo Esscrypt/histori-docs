@@ -1,105 +1,18 @@
 {
-    "openapi": "3.0.3",
+    "openapi": "3.1.0",
     "info": {
-        "title": "Histori Archilan Node's Ethereum JSON-RPC Methods",
-        "description": "This reference showcases an Ethereum type JSON-RPC API connecting to an Ethereum network node. Some methods require parameters, and a sample request body is presented in each method. You can copy and paste those sample requests for simplicity.",
+        "title": "Histori Archival Node's Ethereum JSON-RPC Methods",
+        "description": "This reference showcases an Ethereum type JSON-RPC API connecting to an Ethereum network node. Some methods require parameters, and a sample request body is presented in each method. You can copy an paste those sample requests for simplicity.",
         "version": "v0.0.1"
     },
     "servers": [
         {
-            "url": "https://node.histori.xyz/{network}",
-            "description": "Histori Archive Node",
-            "variables": {
-                "network": {
-                    "default": "eth-mainnet",
-                    "description": "The blockchain network (e.g., eth-mainnet)"
-                }
-            }
+            "url": "https://node.histori.xyz",
+            "description": "Histori Archive Node"
         }
     ],
     "paths": {
-        "/eth_accounts": {
-            "post": {
-                "tags": [
-                    "ETH Methods"
-                ],
-                "summary": "Returns array of all accounts owned by the client.",
-                "description": "",
-                "operationId": "eth_accounts",
-                "parameters": [
-                    {
-                        "name": "network",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "default": "eth-mainnet",
-                            "description": "The blockchain network to connect to.",
-                            "example": "eth-mainnet"
-                        },
-                        "required": true,
-                        "default": "eth-mainnet",
-                        "example": "eth-mainnet",
-                        "description": "The blockchain network to connect to."
-                    },
-                    {
-                        "name": "projectId",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
-                        },
-                        "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "description": "The id of your project. Can be found in your Histori dashboard."
-                        
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "example": {
-                                "jsonrpc": "2.0",
-                                "method": "eth_accounts",
-                                "params": [],
-                                "id": 1
-                            },
-                            "schema": {
-                                "$ref": "#/components/schemas/Input"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "examples": {
-                                    "Sample Response": {
-                                        "summary": "Real World response",
-                                        "value": {
-                                            "jsonrpc": "2.0",
-                                            "id": 1,
-                                            "result": [
-                                                "0x407d73d8a49eeb85d32cf465507dd71d507100c1",
-                                                "0x5aeda56215b167893e80b4fe645ba6d5bab767de"
-                                            ]
-                                        }
-                                    }
-                                },
-
-                                "schema": {
-                                    "$ref": "#/components/schemas/Output"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/eth_blockNumber": {
+        "/{network}/eth_blockNumber": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -118,7 +31,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -131,7 +43,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -176,7 +87,7 @@
                 }
             }
         },
-        "/eth_call": {
+        "/{network}/eth_call": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -195,7 +106,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -208,7 +118,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -259,7 +168,7 @@
                 }
             }
         },
-        "/eth_estimateGas": {
+        "/{network}/eth_estimateGas": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -278,7 +187,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -291,7 +199,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -343,7 +250,7 @@
             }
         },
 
-        "/eth_gasPrice": {
+        "/{network}//eth_gasPrice": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -362,7 +269,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -375,7 +281,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -420,7 +325,7 @@
                 }
             }
         },
-        "/eth_getBalance": {
+        "/{network}//eth_getBalance": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -439,7 +344,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -452,7 +356,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -500,7 +403,7 @@
                 }
             }
         },
-        "/eth_getBlockByHash": {
+        "/{network}//eth_getBlockByHash": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -519,7 +422,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -532,7 +434,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -833,7 +734,7 @@
                 }
             }
         },
-        "/eth_getBlockByNumber": {
+        "/{network}/eth_getBlockByNumber": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -852,7 +753,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -865,7 +765,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1140,7 +1039,7 @@
                 }
             }
         },
-        "/eth_getBlockTransactionCountByHash": {
+        "/{network}/eth_getBlockTransactionCountByHash": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1159,7 +1058,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1172,7 +1070,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1219,7 +1116,7 @@
                 }
             }
         },
-        "/eth_getBlockTransactionCountByNumber": {
+        "/{network}/eth_getBlockTransactionCountByNumber": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1238,7 +1135,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1251,7 +1147,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1298,7 +1193,7 @@
                 }
             }
         },
-        "/eth_getCode": {
+        "/{network}/eth_getCode": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1317,7 +1212,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1330,7 +1224,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1378,7 +1271,7 @@
                 }
             }
         },
-        "/eth_getFilterChanges": {
+        "/{network}/eth_getFilterChanges": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1397,7 +1290,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1410,7 +1302,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1468,7 +1359,7 @@
                 }
             }
         },
-        "/eth_getFilterLogs": {
+        "/{network}/eth_getFilterLogs": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1487,7 +1378,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1500,7 +1390,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -1557,7 +1446,7 @@
                 }
             }
         },
-        "/eth_getLogs": {
+        "/{network}/eth_getLogs": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -1576,7 +1465,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -1589,7 +1477,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5338,7 +5225,7 @@
                 }
             }
         },
-        "/eth_getStorageAt": {
+        "/{network}/eth_getStorageAt": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5357,7 +5244,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5370,7 +5256,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5419,7 +5304,7 @@
                 }
             }
         },
-        "/eth_getTransactionByBlockHashAndIndex": {
+        "/{network}/eth_getTransactionByBlockHashAndIndex": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5438,7 +5323,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5451,7 +5335,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5516,7 +5399,7 @@
                 }
             }
         },
-        "/eth_getTransactionByBlockNumberAndIndex": {
+        "/{network}/eth_getTransactionByBlockNumberAndIndex": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5535,7 +5418,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5548,7 +5430,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5613,7 +5494,7 @@
                 }
             }
         },
-        "/eth_getTransactionByHash": {
+        "/{network}/eth_getTransactionByHash": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5632,7 +5513,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5645,7 +5525,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5709,7 +5588,7 @@
                 }
             }
         },
-        "/eth_getTransactionCount": {
+        "/{network}/eth_getTransactionCount": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5728,7 +5607,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5741,7 +5619,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5789,7 +5666,7 @@
                 }
             }
         },
-        "/eth_getTransactionReceipt": {
+        "/{network}/eth_getTransactionReceipt": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5808,7 +5685,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5821,7 +5697,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5897,7 +5772,7 @@
                 }
             }
         },
-        "/eth_getUncleByBlockHashAndIndex": {
+        "/{network}/eth_getUncleByBlockHashAndIndex": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -5916,7 +5791,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -5929,7 +5803,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -5997,7 +5870,7 @@
                 }
             }
         },
-        "/eth_getUncleByBlockNumberAndIndex": {
+        "/{network}/eth_getUncleByBlockNumberAndIndex": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6016,7 +5889,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6029,7 +5901,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6097,7 +5968,7 @@
                 }
             }
         },
-        "/eth_getUncleCountByBlockHash": {
+        "/{network}/eth_getUncleCountByBlockHash": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6116,7 +5987,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6129,7 +5999,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6176,7 +6045,7 @@
                 }
             }
         },
-        "/eth_getUncleCountByBlockNumber": {
+        "/{network}/eth_getUncleCountByBlockNumber": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6195,7 +6064,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6208,7 +6076,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6255,7 +6122,7 @@
                 }
             }
         },
-        "/eth_newBlockFilter": {
+        "/{network}/eth_newBlockFilter": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6274,7 +6141,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6287,7 +6153,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6332,7 +6197,7 @@
                 }
             }
         },
-        "/eth_newFilter": {
+        "/{network}/eth_newFilter": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6351,7 +6216,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6364,7 +6228,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6415,7 +6278,7 @@
                 }
             }
         },
-        "/eth_newPendingTransactionFilter": {
+        "/{network}/eth_newPendingTransactionFilter": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6434,7 +6297,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6447,7 +6309,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6492,7 +6353,7 @@
                 }
             }
         },
-        "/eth_protocolVersion": {
+        "/{network}/eth_protocolVersion": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6511,7 +6372,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6524,7 +6384,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6569,7 +6428,7 @@
                 }
             }
         },
-        "/eth_sendRawTransaction": {
+        "/{network}/eth_sendRawTransaction": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6588,7 +6447,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6601,7 +6459,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6648,129 +6505,7 @@
                 }
             }
         },
-        "/eth_sendTransaction": {
-            "post": {
-                "tags": [
-                    "ETH Methods"
-                ],
-                "summary": "Creates new message call transaction or a contract creation, if the data field contains code.",
-                "description": "The `eth_sendTransaction` JSON-RPC method is not supported because Histori doesn't store the user's private key required to sign the transaction. Use `eth_sendRawTransaction` instead.",
-                "operationId": "eth_sendTransaction",
-                "parameters": [
-                    {
-                        "name": "network",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "default": "eth-mainnet",
-                            "description": "The blockchain network to connect to.",
-                            "example": "eth-mainnet"
-                        },
-                        "required": true,
-                        "default": "eth-mainnet",
-                        "example": "eth-mainnet",
-                        "description": "The blockchain network to connect to."
-                    },
-                    {
-                        "name": "projectId",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
-                        },
-                        "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "description": "The id of your project. Can be found in your Histori dashboard."
-                        
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Input"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Output"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/eth_sign": {
-            "post": {
-                "tags": [
-                    "ETH Methods"
-                ],
-                "summary": "The sign method calculates an Ethereum specific signature with: sign(keccak256(\"\\x19Ethereum Signed Message:\\n\" + len(message) + message))).",
-                "description": "The `eth_sign` JSON-RPC method is not supported because Histori doesn't store the user's private key required to sign the transaction. Use `eth_sendRawTransaction` instead.",
-                "operationId": "eth_sign",
-                "parameters": [
-                    {
-                        "name": "network",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "default": "eth-mainnet",
-                            "description": "The blockchain network to connect to.",
-                            "example": "eth-mainnet"
-                        },
-                        "required": true,
-                        "default": "eth-mainnet",
-                        "example": "eth-mainnet",
-                        "description": "The blockchain network to connect to."
-                    },
-                    {
-                        "name": "projectId",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
-                        },
-                        "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
-                        "description": "The id of your project. Can be found in your Histori dashboard."
-                        
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Input"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Output"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/eth_syncing": {
+        "/{network}/eth_syncing": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6789,7 +6524,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6802,7 +6536,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6847,7 +6580,7 @@
                 }
             }
         },
-        "/eth_uninstallFilter": {
+        "/{network}/eth_uninstallFilter": {
             "post": {
                 "tags": [
                     "ETH Methods"
@@ -6866,7 +6599,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6879,7 +6611,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -6926,7 +6657,7 @@
                 }
             }
         },
-        "/net_listening": {
+        "/{network}/net_listening": {
             "post": {
                 "tags": [
                     "Net Methods"
@@ -6945,7 +6676,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -6958,7 +6688,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -7003,7 +6732,7 @@
                 }
             }
         },
-        "/net_peerCount": {
+        "/{network}/net_peerCount": {
             "post": {
                 "tags": [
                     "Net Methods"
@@ -7022,7 +6751,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -7035,7 +6763,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -7080,7 +6807,7 @@
                 }
             }
         },
-        "/net_version": {
+        "/{network}/net_version": {
             "post": {
                 "tags": [
                     "Net Methods"
@@ -7099,7 +6826,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -7112,7 +6838,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -7157,7 +6882,7 @@
                 }
             }
         },
-        "/web3_clientVersion": {
+        "/{network}/web3_clientVersion": {
             "post": {
                 "tags": [
                     "Web3 Methods"
@@ -7176,7 +6901,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -7189,7 +6913,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         
@@ -7219,7 +6942,7 @@
                 }
             }
         },
-        "/web3_sha3": {
+        "/{network}/web3_sha3": {
             "post": {
                 "tags": [
                     "Web3 Methods"
@@ -7238,7 +6961,6 @@
                             "example": "eth-mainnet"
                         },
                         "required": true,
-                        "default": "eth-mainnet",
                         "example": "eth-mainnet",
                         "description": "The blockchain network to connect to."
                     },
@@ -7251,7 +6973,6 @@
                             "example": "8ry9f6t9dct1se2hlagxnd9n2a"
                         },
                         "required": true,
-                        "default": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "example": "8ry9f6t9dct1se2hlagxnd9n2a",
                         "description": "The id of your project. Can be found in your Histori dashboard."
                         

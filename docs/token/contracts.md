@@ -40,7 +40,7 @@ Below is a summary table of the deployed contract addresses on the Sepolia testn
 |----------------------|------------------|---------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | HistoriToken         | Ethereum Mainnet | [0x7535a0d4abB00f646b5991e3d3D8e9A0E1721abE](https://etherscan.io/address/0x7535a0d4abb00f646b5991e3d3d8e9a0e1721abe) | [View Contract](https://etherscan.io/address/0x7535a0d4abb00f646b5991e3d3d8e9a0e1721abe) |
 | HistoriToken         | zkSync Mainnet   | [0x7ce1a4b50334ada32a915056f3015eebc29c5964](https://era.zksync.network/token/0x7ce1a4b50334ada32a915056f3015eebc29c5964) | [View Contract](https://era.zksync.network/token/0x7ce1a4b50334ada32a915056f3015eebc29c5964) |
-| Deposit Contract     | zkSync Mainnet   | [0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8](https://etherscan.io/address/0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8) | [View Contract](https://etherscan.io/address/0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8) |
+| Deposit Contract     | zkSync Mainnet   | [0xCf602328Eb5adF98B8f4203121516AB40a9F7eb8](https://explorer.zksync.io/tx/0x64ec92089afb5f1503cf344b4d6d4b05845573b098569b1b9080b508c4552e0d) | [View Contract](https://explorer.zksync.io/tx/0x64ec92089afb5f1503cf344b4d6d4b05845573b098569b1b9080b508c4552e0d) |
 | Vesting Contract     | zkSync Mainnet   | [0x16Cc130eA1ff7E39FFAb80ED5A9FEaE19547aD49](https://era.zksync.network/tx/0x64ec92089afb5f1503cf344b4d6d4b05845573b098569b1b9080b508c4552e0d) | [View Contract](https://era.zksync.network/tx/0x64ec92089afb5f1503cf344b4d6d4b05845573b098569b1b9080b508c4552e0d) |
 
 </details>
