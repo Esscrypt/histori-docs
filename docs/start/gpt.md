@@ -32,7 +32,7 @@ Once you've added your `projectId`, try these prompts to query historical data:
 
 ### General Queries  
 - What is the latest block info on Arbitrum?
-- What was the gas price on Polygon on 1 January 2020?
+- What was the gas price on Polygon on 1 January 2022?
 - What was the Doge2.0 token (0xF2ec4a773ef90c58d98ea734c0eBDB538519b988) balance of vitalik.eth on Ethereum as of 29th of September 2024?
 
 ### Address-Specific Queries  
@@ -41,10 +41,9 @@ Once you've added your `projectId`, try these prompts to query historical data:
 ### Block and Transaction Queries  
 - What are the details of block 16094500 on Ethereum?
 - Was transaction with hash 0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e on Ethereum successful?
-- Find the transaction with hash 0x789...ghi on Polygon.
+- Find the transaction with hash 0x47a4b2a702352e26616209be1764015dbf5b4f53510b3c92f710e899524fb4beon Polygon.
 
 ### Cross-Network Queries  
-- Compare the latest block info on Ethereum and Avalanche.
 - Compare the latest gas price on Ethereum and Avalanche.
 
 ---
