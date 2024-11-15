@@ -15,20 +15,20 @@ To access the Histori API, you first need to create an account.
 2. Sign up with your email address and create a password. Alternatively, you can sign up with **GitHub**, **Google** or **Metamask**.
 3. Once registered, log in to your account.
 
-## Step 2: Get Your API Key
+## Step 2: Get Your Project ID
 
-1. Navigate to the **API Keys** section of your dashboard.
-2. Click **Show** on the API Key field.
+1. Navigate to the **Project ID** section of your dashboard.
+2. Click **Show** on the Project ID field.
 3. Your API key will appear. Be sure to copy this key and keep it secure.
 
-## Step 3: Set Your API Key in Headers/SDK
-> If you are making HTTP requests directly you will need to set the `x-api-key` header ot the API key you just copied.
+## Step 3: Set Your Project ID in Headers/SDK
+> If you are making HTTP requests directly you will need to set the `x-api-key` header to the Project ID you just copied.
 > If you are using the SDK You can set it up by setting it in the constructor:
 1. Install the Typescript SDK using:
 ```bash
 npm install @esscrypt/histori-sdk
 ```
-2. Set up the instance with your API key in your code:
+1. Set up the instance with your API key in your code:
 ```bash
 import HistoriClient from '@esscrypt/histori-sdk';
 

@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.0",
+    "openapi": "3.1.0",
     "paths": {
         "/{network}/transaction": {
             "get": {
@@ -50,10 +50,10 @@
                 ]
             }
         },
-        "/{network}/uniswap/eth-usd-price": {
+        "/{network}/pricing/native-usd-price": {
             "get": {
-                "operationId": "UniswapV3Controller_getETHToUSDTPrice",
-                "summary": "Get ETH to USDT price from Uniswap V3 pool on a specified network",
+                "operationId": "PricingController_getNativeToUSDPrice",
+                "summary": "Get Network native token to USD price on a specified network",
                 "parameters": [
                     {
                         "name": "network",
@@ -64,6 +64,26 @@
                             "example": "eth-mainnet",
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -72,7 +92,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UniswapETHUSDPriceInfoResponseDto"
+                                    "$ref": "#/components/schemas/UniswapPriceInfoResponseDto"
                                 }
                             }
                         }
@@ -82,7 +102,63 @@
                     }
                 },
                 "tags": [
-                    "UniswapV3"
+                    "Pricing"
+                ]
+            }
+        },
+        "/{network}/pricing/hst-usd-price": {
+            "get": {
+                "operationId": "PricingController_getHistoriPriceInUSD",
+                "summary": "Get Histori (HST) to ETH price and convert it to USD",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "required": true,
+                        "in": "path",
+                        "description": "Blockchain network name or chain id",
+                        "schema": {
+                            "example": "eth-mainnet",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The HST price in USD.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UniswapPriceInfoResponseDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid network name."
+                    }
+                },
+                "tags": [
+                    "Pricing"
                 ]
             }
         },
@@ -307,16 +383,46 @@
                     },
                     {
                         "name": "type",
-                        "required": true,
+                        "required": false,
                         "in": "query",
                         "description": "Type of transaction: native token transfer, ERC20 transfer, or swap.",
                         "schema": {
                             "example": "native_transfer",
                             "enum": [
                                 "native_transfer",
-                                "erc_transfer",
+                                "erc20_transfer",
                                 "swap"
                             ],
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gasLimit",
+                        "required": false,
+                        "in": "query",
+                        "description": "Custom gas limit for the transaction",
+                        "schema": {
+                            "example": "100000",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "block_height",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional block number for which the balance is requested. Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "21021201",
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "required": false,
+                        "in": "query",
+                        "description": "Optional Date timestamp for which the balance is requested (ISO 8601 format). Provide only block height or timestamp you want to check for.",
+                        "schema": {
+                            "example": "2024-10-22T12:10:47.000Z",
                             "type": "string"
                         }
                     }
@@ -815,10 +921,19 @@
         }
     },
     "info": {
-        "title": "Histori API",
-        "description": "API for token data and historical balances",
+        "title": "Histori Multichain Data API",
+        "description": "Welcome to the Histori Multichain Data API! Our API provides seamless access to a comprehensive range of token data, multichain transaction histories, decoded event logs, and detailed on-chain analytics across multiple blockchain networks. \n\nWith Histori, developers can build robust crypto applications such as wallet activity feeds, tax and accounting tools, DAO analytics, and Web3 financial services with enterprise-grade data. \n\nThis API is designed to serve projects of any scale, from independent developers to large teams, enabling high-quality, consistent access to multichain on-chain data in a single platform.",
         "version": "1.0.0",
-        "contact": {}
+        "contact": {
+            "name": "Histori Support",
+            "url": "https://histori.xyz/contact",
+            "email": "support@histori.xyz"
+        },
+        "termsOfService": "https://histori.xyz/support/terms-conditions",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
     },
     "tags": [],
     "servers": [
@@ -829,7 +944,7 @@
     ],
     "components": {
         "securitySchemes": {
-            "apiKey": {
+            "projectId": {
                 "type": "apiKey",
                 "in": "header",
                 "name": "x-api-key"
@@ -1013,7 +1128,7 @@
                     "transaction"
                 ]
             },
-            "UniswapETHUSDPriceInfoResponseDto": {
+            "UniswapPriceInfoResponseDto": {
                 "type": "object",
                 "properties": {
                     "network_name": {
@@ -1220,10 +1335,10 @@
                         "description": "The chain ID of the network.",
                         "example": 1
                     },
-                    "currency": {
-                        "type": "string",
-                        "description": "The currency used (e.g., USD).",
-                        "example": "USD"
+                    "block_height": {
+                        "type": "number",
+                        "description": "The block height (block number).",
+                        "example": 20950751
                     },
                     "event_type": {
                         "type": "string",
@@ -1234,11 +1349,6 @@
                         "type": "string",
                         "description": "The amount of gas required for the transaction.",
                         "example": "21000"
-                    },
-                    "total_cost_dollars": {
-                        "type": "string",
-                        "description": "The total gas cost in USD.",
-                        "example": "$69.143039"
                     },
                     "gas_cost_wei": {
                         "type": "string",
@@ -1255,11 +1365,6 @@
                         "description": "The gas price in ETH.",
                         "example": "0.000000013216708294"
                     },
-                    "fee_dollars": {
-                        "type": "string",
-                        "description": "The fee cost in USD. This goes to the miner/proposer of the block for the network.",
-                        "example": "$69.139900"
-                    },
                     "fee_wei": {
                         "type": "string",
                         "description": "The fee cost in wei.",
@@ -1275,11 +1380,6 @@
                         "description": "The fee cost in ETH.",
                         "example": "0.000000026432216588"
                     },
-                    "tip_dollars": {
-                        "type": "string",
-                        "description": "The tip cost in USD.",
-                        "example": "$0.003139\""
-                    },
                     "tip_wei": {
                         "type": "string",
                         "description": "The tip cost in wei.",
@@ -1294,23 +1394,50 @@
                         "type": "string",
                         "description": "The tip cost in ETH.",
                         "example": "0.0000000000012"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "The currency used (e.g., USD).",
+                        "example": "USD"
+                    },
+                    "fee_cost": {
+                        "type": "string",
+                        "description": "The fee cost in traditional currency. This goes to the miner/proposer of the block for the network.",
+                        "example": "$0.000207106596"
+                    },
+                    "tip_cost": {
+                        "type": "string",
+                        "description": "The tip cost in traditional currency. This is paid as priority fee to builders for faster transaction inclusions.",
+                        "example": "$0.000000031662"
+                    },
+                    "gas_cost": {
+                        "type": "string",
+                        "description": "The cost for single compute unit (gas) in traditional currency.",
+                        "example": "$0.000103569129"
+                    },
+                    "execution_cost": {
+                        "type": "string",
+                        "description": "The cost for the whole execution of the logic on the specified network in traditional currency.",
+                        "example": "$2.174951709425"
+                    },
+                    "total_cost": {
+                        "type": "string",
+                        "description": "The total cost for execution in traditional currency.",
+                        "example": "$2.175158847683"
                     }
                 },
                 "required": [
                     "network_name",
                     "chain_id",
-                    "currency",
+                    "block_height",
                     "event_type",
                     "gas_required",
-                    "total_cost_dollars",
                     "gas_cost_wei",
                     "gas_cost_gwei",
                     "gas_cost_eth",
-                    "fee_dollars",
                     "fee_wei",
                     "fee_gwei",
                     "fee_eth",
-                    "tip_dollars",
                     "tip_wei",
                     "tip_gwei",
                     "tip_eth"
@@ -1375,9 +1502,9 @@
                         "description": "The gas limit of the block.",
                         "example": 30000000
                     },
-                    "block_gas_cost": {
+                    "block_valuation": {
                         "type": "string",
-                        "description": "The cost of the block in USD.",
+                        "description": "The cost of the block gas in USD.",
                         "example": "$0.031124"
                     }
                 },
@@ -1393,7 +1520,7 @@
                     "miner_address",
                     "gas_used",
                     "gas_limit",
-                    "block_gas_cost"
+                    "block_valuation"
                 ]
             },
             "TokenUriResponseDto": {
@@ -1523,6 +1650,56 @@
                     "total_supply"
                 ]
             },
+            "TokenDto": {
+                "type": "object",
+                "properties": {
+                    "token_address": {
+                        "type": "string",
+                        "description": "Token contract address in hexadecimal format",
+                        "example": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+                    },
+                    "block_height": {
+                        "type": "number",
+                        "description": "Block number at the time of token creation",
+                        "example": 123456
+                    },
+                    "token_type": {
+                        "type": "string",
+                        "description": "Type of the token (e.g., ERC20, ERC721, ERC777, ERC1155)",
+                        "example": "ERC20"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Token name (required for all token types)",
+                        "example": "My Token"
+                    },
+                    "symbol": {
+                        "type": "string",
+                        "description": "Token symbol (required for all token types)",
+                        "example": "MTK"
+                    },
+                    "decimals": {
+                        "type": "number",
+                        "description": "Number of decimals for ERC20 tokens",
+                        "example": 18
+                    },
+                    "granularity": {
+                        "type": "string",
+                        "description": "Granularity for ERC777 tokens",
+                        "example": "1",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "token_address",
+                    "block_height",
+                    "token_type",
+                    "name",
+                    "symbol",
+                    "decimals",
+                    "granularity"
+                ]
+            },
             "PaginatedTokensResponseDto": {
                 "type": "object",
                 "properties": {
@@ -1558,10 +1735,10 @@
                     },
                     "tokens": {
                         "description": "The list of tokens for the current page",
+                        "type": "array",
                         "items": {
-                            "type": "array"
-                        },
-                        "type": "array"
+                            "$ref": "#/components/schemas/TokenDto"
+                        }
                     }
                 },
                 "required": [
@@ -1672,7 +1849,7 @@
     },
     "security": [
         {
-            "apiKey": []
+            "projectId": []
         }
     ]
 }

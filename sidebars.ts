@@ -24,22 +24,35 @@ const sidebars: SidebarsConfig = {
       id: "networks", // Directly link to the single Networks markdown file
     },
     {
-      type: 'category',
-      label: 'Histori SDK',
-      items: [
-        { type: 'doc', id: 'sdk/intro' }, // SDK Introduction
-        { type: 'doc', id: 'sdk/changelog' }, // SDK Introduction
-        // { type: 'doc', id: 'sdk/quick-start' }, // SDK Quick Start
-        // { type: 'doc', id: 'sdk/usage' }, // SDK Usage
-        // { type: 'doc', id: 'sdk/faq' }, // SDK FAQ
-      ],
-    },
-    {
       type: "category",
-      label: "Archival Node",
+      label: "Products",
       items: [
-        { type: "doc", id: "archive-node-info/intro" }, // Archival Node setup
-      ],
+        {
+          type: "doc",
+          label: "Histori REST API",
+          id: "start/quick-start",
+        },
+        {
+        type: 'category',
+        label: 'Histori SDK',
+        items: [
+          { type: 'doc', id: 'sdk/intro' }, // SDK Introduction
+          { type: 'doc', id: 'sdk/changelog' }, // SDK Introduction
+          // { type: 'doc', id: 'sdk/quick-start' }, // SDK Quick Start
+          // { type: 'doc', id: 'sdk/usage' }, // SDK Usage
+          // { type: 'doc', id: 'sdk/faq' }, // SDK FAQ
+        ],
+      },
+      {
+        type: "doc",
+        label: "Histori Query Assistant",
+        id: "start/gpt"
+      },
+      {
+        type: "doc",
+        label: "Histori Archival MultiNode",
+        id: "archive-node-info/intro", // Directly link to the single Archival Node markdown file
+      },],
     },
     {
       type: "category",
@@ -67,23 +80,29 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "API Reference",
-      link: {
-        type: "generated-index",
-        title: "Histori API Reference",
-        slug: "/docs/api",
-      },
-      items: require("./docs/api/sidebar.js"),
-    },
-    {
-      type: "category",
-      label: "Archival Node RPC API Reference",
-      link: {
-        type: "generated-index",
-        title: "Histori Archival Node RPC API Reference",
-        slug: "/docs/archive-node",
-      },
-      items: require("./docs/archive-node/sidebar.js"),
+      label: "Reference",
+      items: [
+        {
+          type: "category",
+          label: "REST API Reference",
+          link: {
+            type: "generated-index",
+            title: "Histori API Reference",
+            slug: "/docs/api",
+          },
+          items: require("./docs/api/sidebar.js"),
+        },
+        {
+          type: "category",
+          label: "Archival Node RPC API Reference",
+          link: {
+            type: "generated-index",
+            title: "Histori Archival Node RPC API Reference",
+            slug: "/docs/archive-node",
+          },
+          items: require("./docs/archive-node/sidebar.js"),
+        },
+      ],
     },
     // {
     //   type: "category",

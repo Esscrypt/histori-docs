@@ -4,7 +4,7 @@ This guide explains how to use the Histori API to query blockchain logs, specifi
 
 ### Prerequisites
 
-- **API Key**: Required for authentication via the `x-api-key` header.
+- **Project ID**: Required for authentication via the `x-api-key` header or `projectId` query parameter
 - **Base URL**: All requests are made to `https://api.histori.xyz/v1`.
 
 ### Endpoint
@@ -18,7 +18,7 @@ GET /logs/contract/
 For our example:
 
 ```
-GET https://api.histori.xyz/v1/logs/contract/0x6b175474e89094c44da98b954eedeac495271d0f
+GET https://api.histori.xyz/v1/logs/contract/0x6b175474e89094c44da98b954eedeac495271d0f?projectId=<YOUR_PROJECT_ID_HERE>
 ```
 
 ### Query Parameters
@@ -31,16 +31,16 @@ Optional filters:
 # Example CURL command
 ```
 curl -X GET "http://localhost:3001/eth-mainnet/chain/logs/signature/Transfer(address,address,uint256)?startBlock=20912000&contractAddress=0x6b175474e89094c44da98b954eedeac495271d0f&endBlock=20914000" \
--H "x-api-key: <YOUR_API_KEY_HERE>" \
+-H "x-api-key: <YOUR_PROJECT_ID_HERE>" \
 ```
-Replace `<YOUR_API_KEY_HERE>` with your actual API key.
+Replace `<YOUR_PROJECT_ID_HERE>` with your actual Project ID.
 
 ## Example JavaScript (Axios)
 Using the `axios` library:
 ```javascript
 const axios = require('axios');
 
-const apiKey = 'YOUR_API_KEY_HERE';
+const apiKey = 'YOUR_PROJECT_ID_HERE';
 const url = 'https://api.histori.xyz/v1/logs/contract/0x6b175474e89094c44da98b954eedeac495271d0f';
 const params = {
   startBlock: 18000000,

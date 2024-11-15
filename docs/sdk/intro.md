@@ -82,7 +82,7 @@ const allowance = await client.AllowanceService.getAllowance({
 ### Fetching ETH to USDT Price
 Fetch the ETH to USDT price from the Uniswap V3 pool. Example:
 ```javascript
-const price = await client.UniswapV3Service.getETHToUSDTPrice();
+const price = await client.pricingService.getETHToUSDTPrice();
 console.log('ETH to USDT Price:', price);
 ```
 
@@ -156,7 +156,7 @@ async function fetchTokenSupply() {
 
 // Example 8: Fetch the current ETH to USDT price from Uniswap V3
 async function fetchETHToUSDTPrice() {
-  const price = await client.UniswapV3Service.getETHToUSDPrice();
+  const price = await client.pricingService.getNativeToUSDPrice();
   console.log('ETH to USDT Price:', price);
 }
 

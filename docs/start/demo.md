@@ -4,7 +4,7 @@ title: Demo
 ---
 
 # Interactive DEMO 
-> **Note**: You can explore our [**Interactive Demo**](/docs/api/token-controller-get-tokens) using the Demo API Key `demo_3027dae7229e6a4f`
+> **Note**: You can explore our [**Interactive Demo**](/docs/api/token-controller-get-tokens) using the Demo Project ID: `8ry9f6t9dct1se2hlagxnd9n2a` 
 
 # Demo Guide
 
@@ -20,28 +20,28 @@ To access the Histori API, you first need to create an account.
 
 ---
 
-## Step 2: Get Your API Key
+## Step 2: Get Your Project ID
 
 Once logged in, you will be able to get your API key.
 
-1. Navigate to the **API Keys** section of your dashboard.
+1. Navigate to the **Project ID** section of your dashboard.
 2. Click **Show**
-3. Your API key will appear. Be sure to copy this key and keep it secure. **Do not share your API key** as it is tied to your account and usage limits.
+3. Your Project ID key will appear. Be sure to copy this key and keep it secure. **Do not share your Project ID** as it is tied to your account and usage limits.
 
 ---
 
 ## Step 3: Understand API Authentication
 
-You must include your API key in the headers of every request you make to the Histori API. The key is passed using the `x-api-key` header. Without this, your requests will be unauthorized.
+You must include your Project ID in the headers of every request you make to the Histori API. The key is passed using the `x-api-key` header. Without this, your requests will be unauthorized.
 
 Here’s an example of how your request headers should look:
-`x-api-key: <YOUR_UNIQUE_API_KEY>`
+`x-api-key: <YOUR_UNIQUE_PROJECT_ID>`
 
 ---
 
 ## Step 4: Make a Sample Request
 
-Now that you have your API key, let's try making a sample request to the Histori API. For this guide, we’ll retrieve the balance of an Ethereum address. Make sure to replace the example values with actual ones.
+Now that you have your Project ID API key, let's try making a sample request to the Histori API. For this guide, we’ll retrieve the balance of an Ethereum address. Make sure to replace the example values with actual ones.
 
 ### API Endpoint:
 
@@ -53,7 +53,13 @@ Now that you have your API key, let's try making a sample request to the Histori
 
 ```bash
 curl -X GET https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth' \
-  -H 'x-api-key: demo_3027dae7229e6a4f'
+  -H 'x-api-key: 8ry9f6t9dct1se2hlagxnd9n2a'
+```
+
+or you could pass it as a query parameter:
+
+```bash
+curl -X GET https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth&projectId=8ry9f6t9dct1se2hlagxnd9n2a'
 ```
 
 ---

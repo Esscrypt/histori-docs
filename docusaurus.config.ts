@@ -62,7 +62,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/docs/archive-node/eth-accounts',
+          to: '/docs/archive-node/eth-block-number',
           label: 'Archival MultiNode Reference',
           position: 'left',
         },

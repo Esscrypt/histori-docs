@@ -12,19 +12,19 @@ This guide will help you quickly get started with the Histori API by walking you
 To access the Histori API, you first need to create an account.
 
 1. Visit the [Histori API Portal](https://api.histori.xyz/sign-up).
-2. Sign up with google, github, metamask, or your email address and password.
+2. Sign up with Metamask, Google, Github or your email address and password.
 
-## Step 2: Get Your API Key
+## Step 2: Get Your Project ID
 
 Once logged in, you will be able to generate your API key.
 
-1. Navigate to the **API Keys** section of your dashboard.
-2. Click **Show** on the API Key field.
-3. Your API key will appear. Be sure to copy this key and keep it secure.
+1. Navigate to the **Project ID** section of your dashboard.
+2. Click **Show** on the Project ID field.
+3. Your Project ID key will appear. Be sure to copy this key and keep it secure.
 
 ## Step 3: Make an API Request
 
-All requests to the Histori API require your API key to be sent in the `x-api-key` header. The API uses a RESTful approach, and all endpoints are accessible via `GET` requests.
+All requests to the Histori API require your Project ID API key to be sent either in the `x-api-key` header or in the `projectId` query parameter. The API uses a RESTful approach, and all endpoints are accessible via `GET` requests.
 
 ### Example Request Format
 
@@ -44,9 +44,9 @@ GET /v1/{:network_name}/balance/single?token_address={:token_address}&holder={:h
 ### Example API call
 ``` bash
 curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773ef90c58d98ea734c0eBDB538519b988&holder=vitalik.eth' \
--H 'x-api-key: demo_3027dae7229e6a4f'
+-H 'x-api-key: 8ry9f6t9dct1se2hlagxnd9n2a'
 ```
-> **Note**: This example Uses the Demo API Key, which is rate-limited and could be used up. Make sure you have a valid one from the [Histori API Portal](https://api.histori.xyz/sign-up).
+> **Note**: This example Uses the Demo Project ID, which is rate-limited and could be used up. Make sure you have a valid one from the [Histori API Portal](https://api.histori.xyz/sign-up).
 
 --- 
 
@@ -67,11 +67,11 @@ curl -X GET 'https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address
 
 ```
 
-In this example, the request queries the balance of the holder `vitalik.eth` for the Ethereum contract at `0xF2ec4a773ef90c58d98ea734c0eBDB538519b988` on the `eth-mainnet` network. The `x-api-key` header contains your API key.
+In this example, the request queries the balance of the holder `vitalik.eth` for the Ethereum contract at `0xF2ec4a773ef90c58d98ea734c0eBDB538519b988` on the `eth-mainnet` network. The `x-api-key` header contains your Project ID.
 
 ### Required Headers
 
-`x-api-key`: Your unique API key. You can get it from the [Histori API Portal](https://api.histori.xyz/sign-up).
+`x-api-key`: Your unique API key. You can get it from the [Histori API Portal](https://api.histori.xyz/sign-up). Alternatively you can set the Project ID in the `projectId` query parameter
 
 ### Explore Other Endpoints
 
