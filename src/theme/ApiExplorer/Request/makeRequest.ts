@@ -4,8 +4,9 @@ import sdk from "postman-collection";
 function fetchWithtimeout(
   url: string,
   options: RequestInit,
-  timeout = 15000
+  timeout = 5000
 ): any {
+  timeout = 15000;
   return Promise.race([
     fetch(url, options),
     new Promise((_, reject) =>

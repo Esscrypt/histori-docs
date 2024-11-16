@@ -44,7 +44,7 @@ Once you've added your `projectId`, try these prompts to query historical data:
 - Find the transaction with hash 0x47a4b2a702352e26616209be1764015dbf5b4f53510b3c92f710e899524fb4beon Polygon.
 
 ### Cross-Network Queries  
-- Compare the latest gas price on Ethereum and Avalanche.
+- Compare the latest gas price on Ethereum versus Avalanche.
 
 ---
 

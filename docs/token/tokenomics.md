@@ -1,5 +1,26 @@
 # Tokenomics
 
+import React from 'react';
+
+<div style={{
+  backgroundColor: '#f5f7fa', 
+  border: '1px solid #dfe1e6', 
+  borderRadius: '8px', 
+  padding: '16px', 
+  textAlign: 'center',
+  margin: '16px 0',
+  fontFamily: 'Arial, sans-serif'
+}}>
+  <h2 style={{ color: '#2c3e50', margin: '0 0 8px' }}>Histori Token (HST) Update 🚀</h2>
+  <p style={{ color: '#34495e', margin: '0 0 8px' }}>
+    The <strong>Histori token (HST)</strong> is not yet distributed. Stay tuned for our upcoming <strong>ICO</strong>—details will be announced soon!
+  </p>
+  <p style={{ margin: '0' }}>
+    👉 Follow us on <a href="https://twitter.com/histori_xyz" style={{ color: '#3498db', textDecoration: 'none', fontWeight: 'bold' }}>Twitter</a> for the latest updates and announcements.
+  </p>
+</div>
+
+
 ## Overview
 
 The Histori (HST) token is designed to support the ecosystem of our blockchain data access platform, enabling users to stake, earn rewards, and participate in governance. The tokenomics of HST reflects our commitment to sustainability, community involvement, and long-term value creation.
@@ -63,3 +84,42 @@ The **Histori (HST) token** supports a permit mechanism, allowing users to save 
 ## Conclusion
 
 The Histori tokenomics is designed to balance the needs of investors, team members, and the broader community while fostering sustainable growth. With a clear allocation strategy and growth projections, HST aims to incentivize long-term engagement and establish a robust ecosystem for accessing historical blockchain data. The inclusion of early adopters and an ICO ensures that the community is actively involved from the outset, enhancing the project's reach and impact. Staking offers numerous benefits, rewarding users for their commitment to the Histori platform.
+<footer style={{
+  backgroundColor: '#f9fafb',
+  borderTop: '1px solid #e0e0e0',
+  padding: '20px',
+  textAlign: 'center',
+  marginTop: '40px',
+  fontFamily: 'Roboto, sans-serif',
+}}>
+  <p style={{
+    margin: '0 0 8px',
+    fontSize: '18px',
+    fontWeight: '600',
+    color: '#333',
+  }}>
+    Ready to unlock blockchain history with Histori's API?
+  </p>
+  <p style={{
+    margin: '0 0 16px',
+    fontSize: '14px',
+    color: '#666',
+  }}>
+    Get started today and explore seamless access to historical blockchain data.
+  </p>
+  <a href="https://histori.xyz/signin" style={{
+    display: 'inline-block',
+    backgroundColor: '#28a745', /* Green color from Docusaurus */
+    color: '#ffffff',
+    textDecoration: 'none',
+    padding: '12px 24px',
+    borderRadius: '50px', /* Fully rounded button */
+    fontWeight: '600',
+    fontSize: '14px',
+    transition: 'background-color 0.3s ease',
+  }}
+  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#218838'}
+  onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#28a745'}>
+    Get Your API Key
+  </a>
+</footer>
