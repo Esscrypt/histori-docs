@@ -3,8 +3,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 
 const config: Config = {
-  title: "Histori API",
-  tagline: "Histori API",
+  title: "Histori - The Future of Blockchain Data Access",
+  tagline: "Histori - The Future of Blockchain Data AccessI",
   url: "https://docs.histori.xyz", // Use the full custom domain
   baseUrl: "/", // Base URL should be "/" since the subdomain itself serves the docs
 
@@ -18,6 +18,36 @@ const config: Config = {
   trailingSlash: false,
 
   themeConfig: {
+    metadata: [
+      {name: 'og:title', content: 'Histori - The Future of Blockchain Data Access'},
+      {name: 'og:description', content: 'Unlock historical blockchain data with ease. Histori provides developers access to archival nodes, decoded transaction histories, and token analytics across EVM networks. Build smarter with reliable data.'},
+      // {name: 'og:image', content: ''},
+      {name: 'og:url', content: 'https://docs.histori.xyz'},
+      {name: 'og:type', content: 'website'},
+      {name: 'og:site_name', content: 'Histori'},
+      {name: 'og:locale', content: 'en_US'},
+
+      {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'twitter:title', content: 'Histori - The Future of Blockchain Data Access'},
+      {name: 'twitter:description', content: 'Access historical blockchain data like never before. Power your dApps with archival nodes and robust data solutions.'},
+      {name: 'twitter:site', content: '@histori_xyz'},
+      {name: 'twitter:creator', content: '@mihail_kirov'},
+
+    
+    ],
+    announcementBar: {
+      id: 'support_us',
+      content: '🚀 Histori is seeking partnerships with EVM networks to provide seamless access to archival nodes and historical blockchain data.🤝 <a target="https://forms.gle/hFoCt2ahRrd8fYDj7" rel="noopener noreferrer" href="https://forms.gle/hFoCt2ahRrd8fYDj7">Join</a>',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
+    image: 'img/og-image.png',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     headTags: [
       {
         tagName: 'link',
