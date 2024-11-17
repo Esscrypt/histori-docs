@@ -84,6 +84,7 @@ The **Histori (HST) token** supports a permit mechanism, allowing users to save 
 ## Conclusion
 
 The Histori tokenomics is designed to balance the needs of investors, team members, and the broader community while fostering sustainable growth. With a clear allocation strategy and growth projections, HST aims to incentivize long-term engagement and establish a robust ecosystem for accessing historical blockchain data. The inclusion of early adopters and an ICO ensures that the community is actively involved from the outset, enhancing the project's reach and impact. Staking offers numerous benefits, rewarding users for their commitment to the Histori platform.
+
 <footer style={{
   backgroundColor: '#f9fafb',
   borderTop: '1px solid #e0e0e0',

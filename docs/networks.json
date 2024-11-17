@@ -13,7 +13,8 @@
         "credentials": {
             "username": "Iov4Dp2F6I1T9A3FTWQOABF71ZYEZ99MvG76IxooLjU=",
             "password": "iWj420ddCKdl87BEEghQyRrek5rObV03FKeh0SST5IE="
-        }
+        },
+        "poolScale": 6
     },
     {
         "name": "Polygon PoS Mainnet",
@@ -59,8 +60,8 @@
         "history": false,
         "blockExplorer": "https://optimistic.etherscan.io/",
         "blockTime": 2,
-        "nativeCurrencyToETHPool": "0x4dc22588ade05c40338a9d95a6da9dcee68bcd60",
-        "poolInversed": false,
+        "nativeCurrencyToETHPool": "0x68f5c0a2de713a54991e01858fd27a3832401849",
+        "poolInversed": true,
         "rpc_url": "https://opt-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
     },
     {
@@ -93,8 +94,10 @@
         "history": false,
         "blockExplorer": "https://zkevm.polygonscan.com/",
         "blockTime": 13,
-        "rpc_url": "https://polygonzkevm-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
-
+        "rpc_url": "https://polygonzkevm-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x979f9ad9b6399ce1b2c404d08a0775e523116973",
+        "poolInversed": false,
+        "poolType": "quickswap-v3"
     },
     {
         "name": "Binance Smart Chain Mainnet (BSC)",
@@ -117,7 +120,7 @@
         "history": false,
         "blockExplorer": "https://avascan.info/blockchain/c/",
         "blockTime": 3,
-        "nativeCurrencyToUSDPool": "0xd446eb1660f766d533beceef890df7a69d26f7d1",
+        "nativeCurrencyToUSDPool": "0xfae3f424a0a47706811521e3ee268f00cfb5c45e",
         "rpc_url": "https://avalanche-mainnet.infura.io/v3/7dcfa3f7b94348d188576eeebfaec388"
     },
     {
@@ -128,7 +131,7 @@
         "history": false,
         "blockExplorer": "https://apechain.calderaexplorer.xyz/",
         "blockTime": 1,
-        "rpc_url": "https://ape-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://apechain-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
     },
     {
         "name": "Linea Mainnet",
@@ -138,7 +141,10 @@
         "history": false,
         "blockExplorer": "https://lineascan.build/",
         "blockTime": 10,
-        "rpc_url": "https://linea-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://linea-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x3b46661b97aa5f902735b2151487ab7caa801605",
+        "poolNetworkId": "base-mainnet",
+        "poolInversed": true
     },
     {
         "name": "Scroll Mainnet",
@@ -148,7 +154,9 @@
         "history": false,
         "blockExplorer": "https://blockscout.scroll.io/",
         "blockTime": 3,
-        "rpc_url": "https://scroll-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://scroll-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x42a2ab3954a9c3ca93e23855b01ccaf5e7c2bc06",
+        "poolInversed": true
     },
     {
         "name": "Blast Mainnet",
@@ -158,7 +166,9 @@
         "history": false,
         "blockExplorer": "https://blastexplorer.io/",
         "blockTime": 2,
-        "rpc_url": "https://blast-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://blast-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x9a0aa28d999a21d3cf6f2703cdbba9feaf4a32f7",
+        "poolInversed": true
     },
     {
         "name": "Mantle Mainnet",
@@ -168,7 +178,9 @@
         "history": false,
         "blockExplorer": "https://explorer.mantle.xyz/",
         "blockTime": 15,
-        "rpc_url": "https://mantle-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://mantle-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0xf4c5e0f4590b6679b3030d29a84857f226087fef",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Celo Mainnet",
@@ -178,8 +190,9 @@
         "history": false,
         "blockExplorer": "https://explorer.celo.org/",
         "blockTime": 5,
-        "rpc_url": "https://celo-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
-
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=celo&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0xd88d5f9e6c10e6febc9296a454f6c2589b1e8fae",
+        "poolInversed": false
     },
     {
         "name": "WorldChain Mainnet",
@@ -199,7 +212,7 @@
         "history": false,
         "blockExplorer": "https://explorer.palm.io/",
         "blockTime": 6,
-        "rpc_url": "https://palm-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://palm-mainnet.infura.io/v3/7dcfa3f7b94348d188576eeebfaec388"
     },
     {
         "name": "Shape Mainnet",
@@ -230,7 +243,9 @@
         "history": false,
         "blockExplorer": "https://nova.arbiscan.io/",
         "blockTime": 5,
-        "rpc_url": "https://arb-nova-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://arbnova-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x7e6fa8f4417ebca80fddb7451eba61237362a094",
+        "poolInversed": true
     },
     {
         "name": "Astar Mainnet",
@@ -270,7 +285,10 @@
         "history": false,
         "blockExplorer": "https://fraxscan.com/",
         "blockTime": 2,
-        "rpc_url": "https://fraxtal-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=fraxtal&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x352602a8eb65532a74598a3ddbaca7e09a1409c5",
+        "poolNetworkId": "zora-mainnet",
+        "poolInversed": true
     },
     {
         "name": "Berachain bArtio",
@@ -290,7 +308,8 @@
         "history": false,
         "blockExplorer": "https://explorer.zora.energy/",
         "blockTime": 2,
-        "rpc_url": "https://zora-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://zora-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToETHPool": "0x951f52305c7dd61ff9287c968f6f3ccbccbf1c4e"
     },
     {
         "name": "Polynomial Mainnet",
@@ -310,7 +329,10 @@
         "history": false,
         "blockExplorer": "https://evm.flowscan.io/",
         "blockTime": 0.8,
-        "rpc_url": "https://flow-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+        "rpc_url": "https://flow-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7",
+        "nativeCurrencyToUSDPool": "0xd4292615a8e9edc07cba49c1a9cbb93b873a181e",
+        "poolNetworkId": "eth-mainnet",
+        "poolScale": 6
     },
     {
         "name": "Lens Testnet",
@@ -341,6 +363,7 @@
         "blockTime": 31,
         "blockExplorer": "https://explorer.rsk.co/",
         "rpc_url": "https://rootstock-mainnet.g.alchemy.com/v2/eQX-zRLjYb90pAF41n9l47sc_M0Zare7"
+
     },
     {
         "name": "Unichain Testnet",
@@ -360,7 +383,9 @@
         "history": false,
         "blockExplorer": "https://gnosis.blockscout.com/",
         "blockTime": 5,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=gnosis&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=gnosis&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0xa46466ad5507be77ff5abdc27df9dfeda9bd7aee",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Aurora Mainnet",
@@ -370,7 +395,11 @@
         "history": false,
         "blockExplorer": "https://aurorascan.dev/",
         "blockTime": 3,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=aurora&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=aurora&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x629d22e6eeac46a11dbc96be93b90aee9309be4c",
+        "poolNetworkId": "eth-mainnet",
+        "poolType": "uniswap-v2",
+        "poolInversed": true
     },
     {
         "name": "Kaia Mainnet",
@@ -390,7 +419,9 @@
         "history": false,
         "blockExplorer": "https://alephzero.subscan.io/",
         "blockTime": 1,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=alephzero&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=alephzero&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0xb38cc8c5f6eebc03a38515e2aad580e0b80d67ea",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Harmony",
@@ -404,13 +435,15 @@
     },
     {
         "name": "Immutable zkEVM",
-        "networkId": "immutable-zkevm-mainnet",
+        "networkId": "immutable-mainnet",
         "chainId": 13371,
         "active": true,
         "history": false,
         "blockExplorer": "https://explorer.immutable.com/",
         "blockTime": 2,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=immutable-zkevm&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=immutable-zkevm&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToUSDPool": "0x5f5664979ed0f8124e9910f9476b12304ed85e61",
+        "poolScale": 6
     },
     {
         "name": "Kava Mainnet",
@@ -440,7 +473,9 @@
         "history": false,
         "blockExplorer": "https://blockscout.lisk.com/",
         "blockTime": 2,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=lisk&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=lisk&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0xae3dfb1a7d4d736035e352698887efa8a1e16eee",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Manta Pacific Mainnet",
@@ -450,7 +485,9 @@
         "history": false,
         "blockExplorer": "https://pacific-explorer.manta.network/",
         "blockTime": 10,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=manta-pacific&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x8f0111df7d48c9117d44b9cedfc23f160e3311f3",
+        "poolInversed": true
     },
     {
         "name": "Metal L2 Mainnet",
@@ -460,7 +497,10 @@
         "history": false,
         "blockExplorer": "https://explorer.metall2.com/",
         "blockTime": 2,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=metall2&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=metall2&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToUSDPool": "0x36165b14423425228d7ef62b3ffa799d446347c1",
+        "poolNetworkId": "matic-mainnet",
+        "poolScale": 6
     },
     {
         "name": "Moonbeam Mainnet",
@@ -484,14 +524,16 @@
         "rpc_url": "https://lb.drpc.org/ogrpc?network=neon-evm&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
     },
     {
-        "name": "Ronin Mainnet",
-        "networkId": "axie-mainnet",
+        "name": "Ronin Mainnet (Axie Infinity)",
+        "networkId": "ronin-mainnet",
         "chainId": 2020,
         "active": true,
         "history": false,
         "blockExplorer": "https://explorer.roninchain.com/",
         "blockTime": 3,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=ronin&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=ronin&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x2ecb08f87f075b5769fe543d0e52e40140575ea7",
+        "poolType": "uniswap-v2"
         
     },
     {
@@ -500,9 +542,12 @@
         "chainId": 1329,
         "active": true,
         "history": false,
-        "blockExplorer": "https://seistream.app/",
+        "blockExplorer": "https://seitrace.com/",
         "blockTime": 1,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=sei&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=sei&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToUSDPool": "0x882f62fe8e9594470d1da0f70bc85096f6c60423",
+        "poolInversed": true,
+        "poolScale": 6
     },
     {
         "name": "Taiko Mainnet",
@@ -512,7 +557,9 @@
         "history": false,
         "blockExplorer": "https://taikoexplorer.com/",
         "blockTime": 22,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=taiko&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=taiko&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0xe92f2bec2b40908f18c0777c79fd27f8a6894140",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Telos Mainnet",
@@ -522,7 +569,9 @@
         "history": false,
         "blockExplorer": "https://www.teloscan.io/",
         "blockTime": 200,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=telos&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=telos&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x88b81bc7f6dd4032ed626f452d66028ecd50e64a",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "X Layer Mainnet",
@@ -532,7 +581,9 @@
         "history": false,
         "blockExplorer": "https://www.okx.com/web3/explorer/xlayer/",
         "blockTime": 3,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=xlayer&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=xlayer&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x71421a3c789aed89c2dca691d67ef0f26ffa6779",
+        "poolNetworkId": "eth-mainnet"
     },
     {
         "name": "Zircuit Mainnet",
@@ -542,8 +593,10 @@
         "history": false,
         "blockExplorer": "https://explorer.zircuit.com/",
         "blockTime": 2,
-        "rpc_url": "https://lb.drpc.org/ogrpc?network=zircuit-mainnet&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk"
+        "rpc_url": "https://lb.drpc.org/ogrpc?network=zircuit-mainnet&dkey=ArMMv2I0AkjssQTunr4taRhbIhDHpC8R76ccFhW5UfFk",
+        "nativeCurrencyToETHPool": "0x5c17c88eb3f537bda468a771c3b0cae3f90ccd69",
+        "poolNetworkId": "eth-mainnet",
+        "poolType": "uniswap-v2",
+        "poolInversed": true
     }
-
-
 ]

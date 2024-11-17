@@ -47,28 +47,38 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/docs/start/quick-start',
-          label: 'Getting Started',
-          position: 'left',
-        },
-        {
           to: '/docs/use-cases/tokenomics',
           label: 'Use Cases',
           position: 'left',
         },
         {
-          to: '/docs/api/transaction-controller-get-transaction-details',
-          label: 'REST API Reference',
+          to: '/docs/start/quick-start',
+          label: 'REST API',
           position: 'left',
         },
         {
-          to: '/docs/archive-node/eth-block-number',
-          label: 'Archival MultiNode Reference',
+          to: '/docs/sdk/intro',
+          label: 'SDK',
+          position: 'left',
+        },
+        {
+          to: '/docs/start/gpt',
+          label: 'AI Assistant',
+          position: 'left',
+        },
+        {
+          to: '/docs/archive-node-info/intro',
+          label: 'Archival MultiNode',
           position: 'left',
         },
         {
           href: 'https://github.com/esscrypt/histori-docs',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          href: 'https://x.com/histori_xyz',
+          label: 'Twitter',
           position: 'right',
         },
       ],

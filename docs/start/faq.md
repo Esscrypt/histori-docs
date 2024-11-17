@@ -23,8 +23,8 @@ https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=0xF2ec4a773e
 Each request must include your `API_KEY` passed either in the request header `x-api-key`
 
 
-## What is an API key and how do I get one?
-An ** API key** is a unique identifier used to authenticate requests associated with your project for usage and billing purposes. You can get an API key by signing up at Histori API.
+## What is an Project API key and how do I get one?
+A **Project API key** is a unique identifier used to authenticate requests associated with your project for usage and billing purposes. You can get your Project ID by signing up at Histori API.
 
 ## Can I use POST or other HTTP methods?
 Currently, all API endpoints only support `GET` requests. You cannot use `POST`, `PUT`, or `DELETE` with the API at this time.
