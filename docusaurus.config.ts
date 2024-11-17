@@ -44,7 +44,7 @@ const config: Config = {
     },
     image: 'img/og-image.png',
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
