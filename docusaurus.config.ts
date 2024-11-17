@@ -65,7 +65,7 @@ const config: Config = {
       },
     ],
     navbar: {
-      title: "Histori API",
+      title: "Histori - The Future of Blockchain Data Access",
       logo: {
         alt: "Histori Logo",
         src: "img/logo.png",
