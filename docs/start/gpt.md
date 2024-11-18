@@ -23,7 +23,7 @@ When using the [Histori Query Assistant]( https://chatgpt.com/g/g-6735c71f43c081
 
 ### Example Setup  
 1. Visit the assistant here: [Histori Query Assistant](https://chatgpt.com/g/g-6735c71f43c081908d3729de9504cc67-histori-query-assistant)
-2. Start your query with "This is my project id: <YOUR_PROJECT_ID_HERE>. ChatGPT does not persist those across sessions and it is not being shared with 3rd parties.
+2. Start your query with "This is my project id: `projectId`. ChatGPT does not persist those across sessions and it is not being shared with 3rd parties.
 3. Ask Away! Throw all sorts of questions at it and see how it does.
 
 ---

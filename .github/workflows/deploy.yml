@@ -39,6 +39,9 @@ jobs:
       - name: Copy swagger.json
         run: cp histori-rest-api/swagger.json ./swagger.json
 
+      - name: Copy networks.json
+        run: cp histori-rest-api/networks.json ./docs/networks.json
+
       # Step 5: Install dependencies
       - name: Install dependencies
         run: npm ci

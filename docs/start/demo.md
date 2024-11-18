@@ -32,7 +32,7 @@ Once logged in, you will be able to get your API key.
 
 ## Step 3: Understand API Authentication
 
-You must include your Project ID in the headers of every request you make to the Histori API. The key is passed using the `x-api-key` header. Without this, your requests will be unauthorized.
+You must include your Project ID either in the headers of every request you make to the Histori API or pass it as a query parameter. It is recommended (and more secure) to pass it in the headers to make it harder for a malicious entity to steal. The `projectID` is passed using the `x-api-key` header. Without this, your requests will be unauthorized.
 
 Here’s an example of how your request headers should look:
 `x-api-key: <YOUR_UNIQUE_PROJECT_ID>`

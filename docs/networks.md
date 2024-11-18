@@ -21,9 +21,10 @@ export const CopyButton = ({ text }) => {
 
 
 # Supported Networks
-
-This guide lists the networks supported by Histori, including their chain IDs and activation status.
-
+Total supported networks: {networks.length}
+<!-- Total Mainnet networks: {networks.filter((n)=>{['mainnet'].includes(n)}).length} -->
+This table lists all networks supported by Histori, including their chain IDs, Block explorers and capabilities.
+You can copy-paste the `Network ID` and use it in your requests.
 <table>
   <thead>
     <tr>
@@ -32,9 +33,10 @@ This guide lists the networks supported by Histori, including their chain IDs an
       <th>Chain ID</th>
       <th>Block Time</th>
       <th>Block Explorer</th>
-      <th>USD Gas Costs?</th>
-      <th>Supports Querying Historical Data?</th>
-      <th>Active on Histori?</th>
+      <th>Aggregated RPCs</th>
+      <th>USD Costs?</th>
+      <th>Historical Data?</th>
+      <th>Active?</th>
     </tr>
   </thead>
   <tbody>
@@ -45,13 +47,16 @@ This guide lists the networks supported by Histori, including their chain IDs an
           {network.networkId} <CopyButton text={network.networkId.toString()} />
         </td>
         <td>
-          {network.chainId} <CopyButton text={network.chainId.toString()} />
+          {network.chainId ? network.chainId: "¯\_(ツ)_/¯"} {network.chainId && <CopyButton text={network.chainId.toString()} />}
         </td>
         <td>
           {network.blockTime}
         </td>
         <td>
-          {network.blockExplorer}
+          <a href={network.blockExplorer}>Explorer</a>
+        </td>
+        <td>
+          {network.rpc.length}
         </td>
         <td>{network.nativeCurrencyToETHPool || network.nativeCurrencyToUSDPool ? "✅" : "❌"}</td>
         <td>{network.history ? "✅" : "❌"}</td>

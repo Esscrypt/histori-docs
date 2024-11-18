@@ -22,3 +22,5 @@ yarn-error.log*
 
 docs/api
 docs/archive-node
+
+networks.json
