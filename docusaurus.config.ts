@@ -93,7 +93,7 @@ const config: Config = {
         },
         {
           to: '/docs/start/gpt',
-          label: 'AI Assistant',
+          label: 'HistoriGPT',
           position: 'left',
         },
         {
