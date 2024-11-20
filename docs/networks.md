@@ -34,9 +34,9 @@ You can copy-paste the `Network ID` and use it in your requests.
       <th>Block Time</th>
       <th>Block Explorer</th>
       <th>Aggregated RPCs</th>
-      <th>USD Costs?</th>
+      <th>USD Cost Conversion?</th>
       <th>Historical Data?</th>
-      <th>Active?</th>
+      <th>Active on Histori?</th>
     </tr>
   </thead>
   <tbody>
@@ -66,42 +66,56 @@ You can copy-paste the `Network ID` and use it in your requests.
   </tbody>
 </table>
 
-<footer style={{
-  backgroundColor: '#f9fafb',
-  borderTop: '1px solid #e0e0e0',
-  padding: '20px',
-  textAlign: 'center',
-  marginTop: '40px',
-  fontFamily: 'Roboto, sans-serif',
-}}>
-  <p style={{
-    margin: '0 0 8px',
-    fontSize: '18px',
-    fontWeight: '600',
-    color: '#333',
-  }}>
-    Ready to unlock blockchain history with Histori's API?
-  </p>
-  <p style={{
-    margin: '0 0 16px',
-    fontSize: '14px',
-    color: '#666',
-  }}>
-    Get started today and explore seamless access to historical blockchain data.
-  </p>
-  <a href="https://histori.xyz/signin" style={{
-    display: 'inline-block',
-    backgroundColor: '#28a745', /* Green color from Docusaurus */
-    color: '#ffffff',
-    textDecoration: 'none',
-    padding: '12px 24px',
-    borderRadius: '50px', /* Fully rounded button */
-    fontWeight: '600',
-    fontSize: '14px',
-    transition: 'background-color 0.3s ease',
-  }}
-  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#218838'}
-  onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#28a745'}>
-    Get Your API Key
-  </a>
-</footer>
+ <footer
+    style={{
+      backgroundColor: 'var(--color-background, #f9fafb)',
+      borderTop: '1px solid var(--color-border, #e0e0e0)',
+      padding: '20px',
+      textAlign: 'center',
+      marginTop: '40px',
+      fontFamily: 'Roboto, sans-serif',
+      color: 'var(--color-text, #333)',
+    }}
+  >
+    <p
+      style={{
+        margin: '0 0 8px',
+        fontSize: '18px',
+        fontWeight: '600',
+        color: 'var(--color-primary-text, #333)',
+      }}
+    >
+      Ready to unlock blockchain history with Histori's API?
+    </p>
+    <p
+      style={{
+        margin: '0 0 16px',
+        fontSize: '14px',
+        color: 'var(--color-secondary-text, #666)',
+      }}
+    >
+      Get started today and explore seamless access to historical blockchain data.
+    </p>
+    <a
+      href="https://histori.xyz/signin"
+      style={{
+        display: 'inline-block',
+        backgroundColor: 'var(--color-button-bg, #28a745)',
+        color: 'var(--color-button-text, #ffffff)',
+        textDecoration: 'none',
+        padding: '12px 24px',
+        borderRadius: '50px',
+        fontWeight: '600',
+        fontSize: '14px',
+        transition: 'background-color 0.3s ease',
+      }}
+      onMouseOver={(e) =>
+        (e.currentTarget.style.backgroundColor = 'var(--color-button-hover-bg, #218838)')
+      }
+      onMouseOut={(e) =>
+        (e.currentTarget.style.backgroundColor = 'var(--color-button-bg, #28a745)')
+      }
+    >
+      Get Your API Key
+    </a>
+  </footer>
