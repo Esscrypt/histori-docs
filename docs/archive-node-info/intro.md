@@ -9,13 +9,13 @@ Welcome to the Histori multi-chain archival RPC node. This service allows you to
 
 ## 1. Overview
 
-The Histori archival RPC node supports querying the Ethereum Mainnet with a simple endpoint format. All requests use the JSON-RPC API, making it easy to perform common blockchain operations, such as querying blocks and transactions.
+The Histori archival RPC node supports querying 60+ networks with a simple endpoint format. All requests use the JSON-RPC API, making it easy to perform common blockchain operations, such as querying blocks and transactions.
 
 ### Base URL
 
 All requests are made to the following base URL:
 ```bash
-https://node.histori.xyz/eth-mainnet
+https://node.histori.xyz/
 ```
 
 
@@ -23,13 +23,15 @@ https://node.histori.xyz/eth-mainnet
 
 A comprehensive list of supported networks can be found in the [Supported Networks](docs/networks) section
 
-Example:
-- To query Ethereum Mainnet, use: `https://node.histori.xyz/eth-mainnet/<YOUR_PROJECT_ID>`
+Format:
+- To query a specific network, use: `https://node.histori.xyz/<NETWORK_NAME>/<YOUR_PROJECT_ID>`
 > Replace `YOUR_PROJECT_ID` with the project ID from the [Histori Dashboard](https://histori.xyz/dashboard).
+> Replace `NETWORK_NAME` with the network you want to do RPC calls to. You can find a complete list of networks in the [Supported Networks](docs/networks) section
 
 ## 3. Authentication
 
 All requests must include an project ID for authentication. The project ID can be obtained from the [Histori Dashboard](https://histori.xyz/dashboard).
+Again ,like the REST API, the Project ID can either be supplied as a path parameter, as a query parameter named `projectId` or in the `x-api-key` header.
 
 ## 4. Making Requests
 
