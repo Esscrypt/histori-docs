@@ -21,11 +21,7 @@ https://node.histori.xyz/eth-mainnet
 
 ## 2. Supported Networks
 
-Currently, only the Ethereum Mainnet is supported:
-
-| Network Name       | Path Parameter  |
-|--------------------|-----------------|
-| Ethereum Mainnet   | `eth-mainnet`   |
+A comprehensive list of supported networks can be found in the [Supported Networks](docs/networks) section
 
 Example:
 - To query Ethereum Mainnet, use: `https://node.histori.xyz/eth-mainnet/<YOUR_PROJECT_ID>`
