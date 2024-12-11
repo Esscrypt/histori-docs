@@ -21,7 +21,7 @@ https://node.histori.xyz/
 
 ## 2. Supported Networks
 
-A comprehensive list of supported networks can be found in the [Supported Networks](docs/networks) section
+A comprehensive list of supported networks can be found in the [Supported Networks](https://docs.histori.xyz/docs/networks) section
 
 Format:
 - To query a specific network, use: `https://node.histori.xyz/<NETWORK_NAME>/<YOUR_PROJECT_ID>`
@@ -52,11 +52,36 @@ All requests are made using the JSON-RPC 2.0 format. The basic structure of a re
 - `params`: An array of parameters for the method.
 - `id`: A unique identifier for the request. You can optionally set these differently to keep track of requests
 
-### 4.1 Example Request Using `eth_getBlockByNumber`
-This method retrieves information about a block by number. Lets get the information about block 20 million
+---
+
+### 4.1 New Query Parameters
+
+The Histori RPC node supports additional query parameters to enhance flexibility and reliability:
+1.	`secure=true`: Routes requests via the Flashbots Protect endpoint, ensuring private and secure transaction handling. This is particularly useful for Ethereum Mainnet to prevent front-running and MEV attacks.
+3.	`all=true`: Sends the request to all RPC providers for the network and compares responses to ensure data integrity. If any discrepancies are detected, the system flags them.
+2.	`random=true`: Sends the request to a randomly chosen RPC provider, balancing network load and decreasing likelihood of rate limits.
+4.	`fallback=false`: Disables the default fallback mechanism, which retries the request on a different provider if the initial attempt fails.
+
+### 4.2 Example Request Using `secure=true`
+**Use Case**: Submit a private transaction via Flashbots Protect.
+
 **cURL Example**
 ```bash
-curl -X POST https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a \
+curl -X POST "https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a?secure=true" \
+-H "Content-Type: application/json" \
+-d '{
+    "jsonrpc": "2.0",
+    "method": "eth_sendRawTransaction",
+    "params": ["<raw_transaction_hex>"],
+    "id": 1
+}'
+```
+### 4.3 Example Request Using `random=true`
+
+**Use Case**: Query a block using a randomly selected RPC provider. This is faster since a single RPC provider is being used.
+**cURL Example**
+```bash
+curl -X POST "https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a?random=true" \
 -H "Content-Type: application/json" \
 -d '{
     "jsonrpc": "2.0",
@@ -65,46 +90,16 @@ curl -X POST https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a \
     "id": 1
 }'
 ```
-
-**JavaScript Example (Node.js)**
-```javascript
-const axios = require('axios');
-
-// Replace with your actual API key
-const PROJECT_ID = 'YOUR_PROJECT_ID';
-
-const payload = {
-    jsonrpc: "2.0",
-    method: "eth_getBlockByNumber",
-    params: ["latest", true],
-    id: 1
-};
-
-axios.post(`https://node.histori.xyz/eth-mainnet/${PROJECT_ID}`, payload, {
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
-.then(response => {
-    console.log('Block Data:', response.data);
-})
-.catch(error => {
-    console.error('Error:', error.message);
-});
-```
-
-Replace `PROJECT_ID` with your actual Project ID. You can get it from the [Histori Dashboard](https://histori.xyz/dashboard).
-
-### 4.2 Example Request Using `eth_getTransactionByHash`
-This method retrieves a transaction by its hash.
+### 4.4 Example Request Using `all=true`
+**Use Case**: Query a block and verify consistent responses across all RPC providers.
 **cURL Example**
 ```bash
-curl -X POST https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a \
+curl -X POST "https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a?all=true" \
 -H "Content-Type: application/json" \
 -d '{
     "jsonrpc": "2.0",
-    "method": "eth_getTransactionByHash",
-    "params": ["0xf85e0f37296608a3a23ffd8b2349c4cb25e9174d357c32d4416d3eb1d214080e"],
+    "method": "eth_getBlockByNumber",
+    "params": ["latest", true],
     "id": 1
 }'
 ```
@@ -115,12 +110,15 @@ curl -X POST https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a \
 - **401 Unauthorized**: Returned if the projectId is missing or invalid.
 - **403 Forbidden**: Returned if the projectId cannot use this product.
 - **429 Too Many Requests**: Returned if the rate limit is exceeded.
+  
+---
+
 ## Troubleshooting Tips
-Ensure the `projectId` query parameter is included and correctly set.
-Double-check the format of the JSON-RPC request payload.
+1. Ensure the `projectId` query parameter is included and correctly set. Replace `projectId` with your actual Project ID. You can get it from the [Histori Dashboard](https://histori.xyz/dashboard).
+2. Double-check the format of the JSON-RPC request payload.
 
 ## 6. Rate Limits
-Histori's archival RPC node may enforce rate limits to prevent abuse. If you receive a `429 Too Many Requests` response, you may need to reduce the frequency of your requests or contact support for higher rate limits.
+Histori's archival RPC node may enforce rate limits to prevent abuse. If you receive a `429 Too Many Requests` response, you may need to reduce the frequency of your requests or contact support for higher rate limits. If the underlying RPC provider is rate limiting you, you can use `random=true` query parameter.
 
 ## 7. Additional Resources
 - (Ethereum JSON-RPC Methods)[https://ethereum.org/en/developers/docs/apis/json-rpc/]

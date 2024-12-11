@@ -49,9 +49,13 @@ const sidebars: SidebarsConfig = {
         id: "start/gpt"
       },
       {
-        type: "doc",
+        type: "category",
         label: "Histori Archival MultiNode",
-        id: "archive-node-info/intro", // Directly link to the single Archival Node markdown file
+        items: [
+          { type: "doc", id: "archive-node-info/intro" }, // Archival Node setup
+          { type: "doc", id: "archive-node-info/features" },
+          { type: "doc", id: "archive-node-info/providers" },
+        ],
       },],
     },
     {
