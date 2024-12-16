@@ -75,7 +75,7 @@ curl -X GET https://api.histori.xyz/v1/eth-mainnet/balance/single?token_address=
     "token_symbol": "DOGE2.0",
     "token_type": "erc20",
     "checked_at_block": 20984814,
-    "checked_at_timestamp": "2024-10-17T10:53:35.000Z",
+    "checked_at_date": "2024-10-17T10:53:35.000Z",
     "balance": "18842536318442137573493"
 }
 ```
