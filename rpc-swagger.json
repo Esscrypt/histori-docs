@@ -168,6 +168,249 @@
                 }
             }
         },
+        "/{network}/eth_callAll": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "[CUSTOM] Executes a new message call against all supported RPC providers (check providers section) immediately without creating a transaction on the blockchain.",
+                "description": "",
+                "operationId": "eth_callAll",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            },
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_callAll",
+                                "params": [
+                                    {
+                                        "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+                                        "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+                                    },
+                                    "latest"
+                                ],
+                                "id": 1
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                },
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "jsonrpc": "2.0",
+                                            "id": 1,
+                                            "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_callRandom": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "[CUSTOM] Executes a new message call against a random supported RPC provider (check providers section) immediately without creating a transaction on the blockchain. Useful for preventing rate limiting from a single provider.",
+                "description": "",
+                "operationId": "eth_callRandom",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            },
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_callRandom",
+                                "params": [
+                                    {
+                                        "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+                                        "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+                                    },
+                                    "latest"
+                                ],
+                                "id": 1
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                },
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "jsonrpc": "2.0",
+                                            "id": 1,
+                                            "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_callFallback": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "[CUSTOM] Executes a new message call against an RPC provider (check providers section) immediately without creating a transaction on the blockchain. In case the provider is down, it will fallback to another provider. Useful for ensuring high availability.",
+                "description": "",
+                "operationId": "eth_callFallback",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            },
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_callFallback",
+                                "params": [
+                                    {
+                                        "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+                                        "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+                                    },
+                                    "latest"
+                                ],
+                                "id": 1
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                },
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "jsonrpc": "2.0",
+                                            "id": 1,
+                                            "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/{network}/eth_estimateGas": {
             "post": {
                 "tags": [
@@ -6493,6 +6736,413 @@
                                             "id": 1,
                                             "jsonrpc": "2.0",
                                             "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                                          }
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_sendFallback": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "Creates new message call transaction or a contract creation for signed transactions. In case the provider returns an error, retry with the fallback provider. If all providers fail, return an error. Useful for high availability.",
+                "description": "Creates new message call transaction or a contract creation for signed transactions.",
+                "operationId": "eth_sendFallback",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_sendFallback",
+                                "params": [
+                                    "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"
+                                ],
+                                "id": 1
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "id": 1,
+                                            "jsonrpc": "2.0",
+                                            "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                                          }
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_sendAll": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "Creates new message call transaction or a contract creation for signed transactions. Sends the transaction to all available providers. If all providers fail, return an error. After the RPC responses are received from all providers, they get compared. If the responses are different, there is a mallicious one and the call should not be trusted. If the responses are the same, the transaction is considered successful.",
+                "description": "Creates new message call transaction or a contract creation for signed transactions.",
+                "operationId": "eth_sendAll",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_sendAll",
+                                "params": [
+                                    "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"
+                                ],
+                                "id": 1
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "id": 1,
+                                            "jsonrpc": "2.0",
+                                            "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                                          }
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_sendRandom": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "Creates new message call transaction or a contract creation for signed transactions. Sends the transaction to a random provider. Useful for preventing rate limiting.",
+                "description": "Creates new message call transaction or a contract creation for signed transactions.",
+                "operationId": "eth_sendRandom",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                        
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_sendRandom",
+                                "params": [
+                                    "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"
+                                ],
+                                "id": 1
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "id": 1,
+                                            "jsonrpc": "2.0",
+                                            "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                                          }
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_sendPrivateTransaction": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "Sends a single transaction to Flashbots for frontrunning and revert protection without the complexity of sending it as a bundle.",
+                "description": "Sends a single transaction to Flashbots for frontrunning and revert protection without the complexity of sending it as a bundle.",
+                "operationId": "eth_sendPrivateTransaction",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                    },
+                    {
+                        "name": "maxRefund",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": true,
+                            "example": true
+                        },
+                        "required": true,
+                        "example": true,
+                        "description": "The level of refund protection to apply. If true, more data will be shared with the builder, but more potential MEV will be rebated to the sender."
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_sendPrivateTransaction",
+                                "params": [
+                                    "0xf869018203e882520894f17f52151ebef6c7334fad080c5704d77216b732881bc16d674ec80000801ba02da1c48b670996dcb1f447ef9ef00b33033c48a4fe938f420bec3e56bfd24071a062e0aa78a81bf0290afbc3a9d8e9a068e6d74caa66c5e0fa8a46deaae96b0833"
+                                ],
+                                "id": 1
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "id": 1,
+                                            "jsonrpc": "2.0",
+                                            "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                                          }
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Output"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/{network}/eth_cancelPrivateTransaction": {
+            "post": {
+                "tags": [
+                    "ETH Methods"
+                ],
+                "summary": "Stops the private transactions from being submitted for the future blocks.",
+                "description": "Stops the private transactions from being submitted for the future blocks.",
+                "operationId": "eth_cancelPrivateTransaction",
+                "parameters": [
+                    {
+                        "name": "network",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "eth-mainnet",
+                            "description": "The blockchain network to connect to.",
+                            "example": "eth-mainnet"
+                        },
+                        "required": true,
+                        "example": "eth-mainnet",
+                        "description": "The blockchain network to connect to."
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "8ry9f6t9dct1se2hlagxnd9n2a",
+                            "example": "8ry9f6t9dct1se2hlagxnd9n2a"
+                        },
+                        "required": true,
+                        "example": "8ry9f6t9dct1se2hlagxnd9n2a",
+                        "description": "The id of your project. Can be found in your Histori dashboard."
+                    },
+                    {
+                        "name": "maxRefund",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": true,
+                            "example": true
+                        },
+                        "required": true,
+                        "example": true,
+                        "description": "The level of refund protection to apply. If true, more data will be shared with the builder, but more potential MEV will be rebated to the sender."
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "jsonrpc": "2.0",
+                                "method": "eth_cancelPrivateTransaction",
+                                "params": [
+                                    {"txHash": "PRIVATE_TX_HASH"}
+                                ],
+                                "id": 1
+                            },
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Sample Response": {
+                                        "summary": "Real World response",
+                                        "value": {
+                                            "id": 1,
+                                            "jsonrpc": "2.0",
+                                            "result": true
                                           }
                                     }
                                 },

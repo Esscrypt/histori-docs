@@ -11,7 +11,7 @@ The **Histori RPC Service** provides seamless access to blockchain data across m
 ## 1. Multi-Network Support
 
 ### Feature
-Easily with a wide range of blockchain networks through unified API. Simply modify the `network` path variable and access a new network. A comprehensive list of all supported networks can be found in the [Supported Networks](docs/networks) section
+Easily with a wide range of blockchain networks through unified API. Simply modify the `network` path variable and access a new network. A comprehensive list of all supported networks can be found in the [Supported Networks](https://docs.histori.xyz/docs/networks) section
 
 ### Why it’s Useful
 - Enables developers to interact with multiple networks using a unified API.
@@ -90,4 +90,4 @@ A high-traffic NFT marketplace querying metadata for thousands of tokens can use
 
 The Histori RPC Service offers a feature-rich, reliable, and secure solution for accessing historical blockchain data. Its focus on multi-network support, secure transactions, high availability, and real-time monitoring makes it an essential tool for developers building robust blockchain applications.
 
-For more information, visit the [Histori documentation](docs/archive-node-info/intro).
+For more information, visit the [Histori documentation](https://docs.histori.xyz/docs/archive-node-info/intro).

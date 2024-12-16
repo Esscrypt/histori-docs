@@ -130,4 +130,4 @@ Other providers are leveraged to extend the service’s capabilities across dive
 
 ## Conclusion
 
-By leveraging a diverse network of providers, the Histori RPC Service ensures reliability, performance, and security. This multi-provider approach allows us to deliver consistent, high-quality blockchain data access for developers and enterprises. For more information, visit our [documentation](docs/archive-node-info/intro) or contact our [support team](mailto:support@histori.xyz).
+By leveraging a diverse network of providers, the Histori RPC Service ensures reliability, performance, and security. This multi-provider approach allows us to deliver consistent, high-quality blockchain data access for developers and enterprises. For more information, visit our [documentation](https://docs.histori.xyz/docs/archive-node-info/intro) or contact our [support team](mailto:support@histori.xyz).

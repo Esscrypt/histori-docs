@@ -26,7 +26,7 @@ A comprehensive list of supported networks can be found in the [Supported Networ
 Format:
 - To query a specific network, use: `https://node.histori.xyz/<NETWORK_NAME>/<YOUR_PROJECT_ID>`
 > Replace `YOUR_PROJECT_ID` with the project ID from the [Histori Dashboard](https://histori.xyz/dashboard).
-> Replace `NETWORK_NAME` with the network you want to do RPC calls to. You can find a complete list of networks in the [Supported Networks](docs/networks) section
+> Replace `NETWORK_NAME` with the network you want to do RPC calls to. You can find a complete list of networks in the [Supported Networks](https://docs.histori.xyz/docs/networks) section
 
 ## 3. Authentication
 
