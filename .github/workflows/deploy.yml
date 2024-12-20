@@ -25,7 +25,7 @@ jobs:
 
       - name: Checkout repository
         run: |
-          git clone https://$GITHUB_TOKEN@github.com/esscrypt/histori-rest-api.git
+          git clone https://$GITHUB_TOKEN@github.com/esscrypt/histori-rest-api-private.git
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Reference your repository secret
 
@@ -37,10 +37,10 @@ jobs:
       
       # Step 4: Copy the `swagger.json` file
       - name: Copy swagger.json
-        run: cp histori-rest-api/swagger.json ./swagger.json
+        run: cp histori-rest-api-private/swagger.json ./swagger.json
 
       - name: Copy networks.json
-        run: cp histori-rest-api/networks.json ./docs/networks.json
+        run: cp histori-rest-api-private/networks.json ./docs/networks.json
 
       # Step 5: Install dependencies
       - name: Install dependencies

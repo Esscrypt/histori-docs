@@ -21,7 +21,7 @@ export const CopyButton = ({ text }) => {
 
 
 # Supported Networks
-Total supported networks: {networks.length}
+<!-- Total supported networks: {networks.length} -->
 <!-- Total Mainnet networks: {networks.filter((n)=>{['mainnet'].includes(n)}).length} -->
 This table lists all networks supported by Histori, including their chain IDs, Block explorers and capabilities.
 You can copy-paste the `Network ID` and use it in your requests.
